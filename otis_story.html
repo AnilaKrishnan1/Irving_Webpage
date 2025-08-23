@@ -36,38 +36,62 @@
       transform: translateX(-50%);
       width: 150px;
       height: auto;
-      pointer-events: none; /* so clicks go through */
+      pointer-events: none;
     }
 
     .controls {
       text-align: center;
       margin-top: 10px;
     }
+
+    /* Character picker */
+    .character-picker {
+      text-align: center;
+      margin: 15px 0;
+    }
+    .character-picker img {
+      width: 60px;
+      height: auto;
+      margin: 5px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      border-radius: 10px;
+    }
+    .character-picker img:hover {
+      border-color: blue;
+    }
   </style>
 </head>
 <body>
+  <!-- Carousel -->
   <div class="carousel">
     <div class="slides">
       <!-- Slide 1 -->
       <div class="slide">
-        <img class="background" src="background1.jpg" alt="Scene 1">
+        <img class="background" src="boy1.png" alt="Scene 1">
         <img class="character" id="char1" src="character1.png" alt="Character">
       </div>
 
       <!-- Slide 2 -->
       <div class="slide">
-        <img class="background" src="background2.jpg" alt="Scene 2">
-        <img class="character" id="char2" src="character1.png" alt="Character">
+        <img class="background" src="2.png" alt="Scene 2">
+        <img class="character" id="char2" src="girl1.png.png" alt="Character">
       </div>
     </div>
   </div>
 
+  <!-- Navigation buttons -->
   <div class="controls">
     <button onclick="prevSlide()">⟨ Prev</button>
     <button onclick="nextSlide()">Next ⟩</button>
-    <br><br>
-    <button onclick="swapCharacter('character1.png')">Character 1</button>
-    <button onclick="swapCharacter('character2.png')">Character 2</button>
+  </div>
+
+  <!-- Character picker thumbnails -->
+  <div class="character-picker">
+    <p>Choose your character:</p>
+    <img src="character1.png" alt="Character 1" onclick="swapCharacter('boy1.png')">
+    <img src="character2.png" alt="Character 2" onclick="swapCharacter('boy2.png')">
+    <img src="character3.png" alt="Character 3" onclick="swapCharacter('girl1.png')">
   </div>
 
   <script>
@@ -90,7 +114,7 @@
       showSlide(currentIndex - 1);
     }
 
-    // Change character layer for all slides
+    // Swap all character layers
     function swapCharacter(imgSrc) {
       document.querySelectorAll('.character').forEach(char => {
         char.src = imgSrc;
@@ -99,4 +123,3 @@
   </script>
 </body>
 </html>
-
