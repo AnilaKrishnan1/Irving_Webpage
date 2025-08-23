@@ -88,7 +88,7 @@
     }
     .char6 {
       bottom: 20%;
-      left: 100%;
+      left: 80%;
       width: 100%;
     }
     .char7 {
@@ -289,6 +289,12 @@
         char.src = imgSrc;
       });
     }
+    function swapCharacter(imgSrc) {
+  document.querySelectorAll('.character').forEach(char => {
+    char.src = imgSrc;          // change character
+    char.style.display = "block"; // show it
+  });
+}
   </script>
 </body>
 </html>
