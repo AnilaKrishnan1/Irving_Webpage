@@ -1,30 +1,93 @@
- <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Otis's Adventure</title>
- <style>
- </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Lexend', sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: center;
+      background-color: teal;
+    }
+
+    .navbar a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      background-color: darkcyan;
+    }
+
+    /* Highlight selected tab */
+    .navbar a.active {
+      background-color: #004d4d;
+    }
+
+    /* Page content */
+    .content {
+      padding: 20px;
+    }
+
+    .map-container {
+      margin: 20px auto;
+      max-width: 90%;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
 </head>
 <body>
-  <h1>Welcome to Otis the Mustang’s Adventure!</h1>
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="index.html" class="active">Map</a>
+    <a href="otis_story.html">Stories</a>
+    <a href="something.html">Something Else</a>
+  </div>
 
-<img src="irvingmap3.jpg" width = width usemap="#image-map" margin-right = 20px>
- <a href="otis_story.html">
-    <img src="otisadventure.png" alt="Otis" width=30%>
-  </a>
-<map name="image-map">
-  <area target="" alt="" title="Irving Archives and Museum" href="page.html" coords="304,761,379,797"  shape="rect">
-  <area target="" alt="" title="Convention Center" href="page2.html" coords="393,362,471,451" shape="rect">
-  <area target="" alt="" title="Mustangs Sculpture" href="page3.html" coords="432,454,490,509" shape="rect">
-  <area target="" alt="" title="Veteran's Park" href="page4.html" coords="378,759,409,813,434,759" shape="poly">
-  <area target="" alt="" title="Centennial Park" href="page5.html" coords="384,837,30" shape="circle">
-  <area target="" alt="" title="Heritage House" href="page6.html" coords="422,784,477,832" shape="rect">
-  <area target="" alt="" title="Heritage Park" href="page7.html" coords="454,829,528,875"  shape="rect">
-  <area target="" alt="" title="Bear Creek Heritage Center" href="page8.html" coords="183,781,245,716" shape="rect">
-  <area target="" alt="" title="Mandalay Canal" href="page9.html" coords="499,480,522,515,551,513,551,527,534,538,489,518,484,501" shape="poly">
-  <area target="" alt="" title="Toyota Music Factory" href="page10.html" coords="395,494,35" shape="circle">
-  <area target="" alt="" title="Otis Brown House" href="page11.html" coords="379,865,447,916" shape="rect"> <!-- historical!!! --> 
-  <area target="" alt="" title="Irving Public Library" href="page12.html"  coords="452,945,529,882" shape="rect"><!-- historical!!! --> 
-</map>
+  <!-- Page content -->
+  <div class="content">
+    <p>Click on the icons to learn more!</p>
+
+    <!-- Map goes here -->
+    <div class="map-container">
+      <img src="irvingmap3.jpg" usemap="#image-map" alt="Irving Map">
+
+      <!-- Example floating character -->
+      <a href="otis_story.html">
+        <img src="otisadventure.png" alt="Otis" style="width:30%; margin-top:10px;">
+      </a>
+
+      <map name="image-map">
+        <area target="" alt="Irving Archives and Museum" title="Irving Archives and Museum" href="page.html" coords="304,761,379,797" shape="rect">
+        <area target="" alt="Convention Center" title="Convention Center" href="page2.html" coords="393,362,471,451" shape="rect">
+        <area target="" alt="Mustangs Sculpture" title="Mustangs Sculpture" href="page3.html" coords="432,454,490,509" shape="rect">
+        <area target="" alt="Veteran's Park" title="Veteran's Park" href="page4.html" coords="378,759,409,813,434,759" shape="poly">
+        <area target="" alt="Centennial Park" title="Centennial Park" href="page5.html" coords="384,837,30" shape="circle">
+        <area target="" alt="Heritage House" title="Heritage House" href="page6.html" coords="422,784,477,832" shape="rect">
+        <area target="" alt="Heritage Park" title="Heritage Park" href="page7.html" coords="454,829,528,875" shape="rect">
+        <area target="" alt="Bear Creek Heritage Center" title="Bear Creek Heritage Center" href="page8.html" coords="183,781,245,716" shape="rect">
+        <area target="" alt="Mandalay Canal" title="Mandalay Canal" href="page9.html" coords="499,480,522,515,551,513,551,527,534,538,489,518,484,501" shape="poly">
+        <area target="" alt="Toyota Music Factory" title="Toyota Music Factory" href="page10.html" coords="395,494,35" shape="circle">
+        <area target="" alt="Otis Brown House" title="Otis Brown House" href="page11.html" coords="379,865,447,916" shape="rect">
+        <area target="" alt="Irving Public Library" title="Irving Public Library" href="page12.html" coords="452,945,529,882" shape="rect">
+      </map>
+    </div>
+  </div>
 </body>
 </html>
