@@ -1,13 +1,24 @@
+/* =========================
+   GLOBAL STYLES
+   ========================= */
 body {
   font-family: 'Lexend', sans-serif;
   margin: 0;
   padding: 0;
   text-align: center;
-  background-color: #fdfdfd;
   color: #333;
+  background-color: #fdfdfd; /* keeps your original background */
 }
 
-/* Navbar */
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #004d4d;
+}
+
+/* =========================
+   NAVBAR
+   ========================= */
 .navbar {
   display: flex;
   justify-content: center;
@@ -20,6 +31,7 @@ body {
   padding: 14px 20px;
   text-decoration: none;
   font-weight: bold;
+  transition: background-color 0.2s ease;
 }
 
 .navbar a:hover {
@@ -30,11 +42,17 @@ body {
   background-color: #004d4d;
 }
 
-/* Content */
+/* =========================
+   CONTENT
+   ========================= */
 .content {
   padding: 20px;
   max-width: 900px;
   margin: auto;
+}
+
+.landmark-images {
+  margin: 20px 0;
 }
 
 .landmark-image {
@@ -44,9 +62,24 @@ body {
 .landmark-image img {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, filter 0.2s ease;
+  max-width: 100%;
 }
 
-/* Back button */
+.landmark-image img:hover {
+  transform: scale(1.03);
+  filter: brightness(1.05);
+}
+
+.caption {
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 5px;
+}
+
+/* =========================
+   BACK TO MAP BUTTON
+   ========================= */
 .back-button {
   text-align: center;
   margin: 40px 0;
@@ -62,4 +95,23 @@ body {
   filter: brightness(1.1);
 }
 
-/* Foo*
+/* =========================
+   FOOTER
+   ========================= */
+footer {
+  background-color: #f2f2f2;
+  padding: 15px 0;
+  margin-top: 30px;
+  font-size: 0.9em;
+  color: #555;
+}
+
+footer a {
+  color: teal;
+  text-decoration: none;
+  transition: text-decoration 0.2s ease;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
