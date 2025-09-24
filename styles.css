@@ -1,80 +1,65 @@
-/* styles.css */
-
-/* Global resets & basics */
 body {
   font-family: 'Lexend', sans-serif;
   margin: 0;
   padding: 0;
-  line-height: 1.6;
-  background-color: #f9f9f9;
+  text-align: center;
+  background-color: #fdfdfd;
   color: #333;
 }
 
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: center;
   background-color: teal;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  padding: 10px 0;
 }
+
 .navbar a {
   color: white;
   padding: 14px 20px;
   text-decoration: none;
   font-weight: bold;
-  transition: background-color 0.3s;
 }
+
 .navbar a:hover {
   background-color: darkcyan;
 }
+
 .navbar a.active {
   background-color: #004d4d;
 }
 
-/* Content area */
+/* Content */
 .content {
-  max-width: 800px;
-  margin: 0 auto;
   padding: 20px;
+  max-width: 900px;
+  margin: auto;
 }
 
-/* For detail pages (landmarks) */
+.landmark-image {
+  margin: 20px 0;
+}
+
 .landmark-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 4px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
-}
-.landmark-text {
-  margin-top: 20px;
-}
-.back-link {
-  color: teal;
-  text-decoration: none;
-  font-weight: bold;
-}
-.back-link:hover {
-  text-decoration: underline;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-/* Footer */
-footer {
-  background-color: teal;
-  color: white;
+/* Back button */
+.back-button {
   text-align: center;
-  padding: 10px;
-  margin-top: 40px;
+  margin: 40px 0;
 }
 
-/* Responsive tweaks */
-@media (max-width: 600px) {
-  .navbar {
-    flex-direction: column;
-  }
-  .navbar a {
-    text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.3);
-  }
+.back-button img {
+  transition: transform 0.2s ease, filter 0.2s ease;
+  cursor: pointer;
 }
+
+.back-button img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Foo*
