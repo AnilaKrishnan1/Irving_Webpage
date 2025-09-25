@@ -19,42 +19,31 @@ h1 {
 /* =========================
    NAVBAR
    ========================= */
-./* Navbar container */
+/* Navbar */
 .navbar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: linear-gradient(90deg, teal, darkcyan);
-  padding: 0.8rem 2rem;
+  justify-content: center;
+  gap: 2rem;
+  background-color: teal;
+  padding: 1rem;
+  font-size: 1rem;
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-/* Branding / site title */
-.navbar .logo {
-  color: white;
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-decoration: none;
-  letter-spacing: 1px;
-}
-
-/* Nav links */
-.navbar-links {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.navbar-links a {
+/* Navbar links */
+.navbar a {
   color: white;
   text-decoration: none;
   font-weight: 500;
   position: relative;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
 }
 
-/* Underline hover effect */
-.navbar-links a::after {
+/* Hover underline animation */
+.navbar a::after {
   content: "";
   position: absolute;
   left: 0;
@@ -65,12 +54,12 @@ h1 {
   transition: width 0.3s ease;
 }
 
-.navbar-links a:hover::after {
+.navbar a:hover::after {
   width: 100%;
 }
 
-/* Active link */
-.navbar-links a.active {
+/* Active page */
+.navbar a.active {
   font-weight: 700;
   border-bottom: 2px solid white;
 }
