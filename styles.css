@@ -64,6 +64,17 @@ h1 {
   border-bottom: 2px solid white;
 }
 
+.landmark-header {
+  text-align: center;
+  padding: 30px 20px; /* smaller padding */
+  background-color: #f0fdfd; /* very subtle, almost white */
+}
+
+.landmark-header h1 {
+  font-size: 2rem; /* slightly smaller */
+  margin: 0; /* remove extra spacing */
+  color: #004d4d; /* dark teal for contrast */
+}
 
 /* =========================
    CONTENT
