@@ -10,44 +10,7 @@
       padding: 0;
       background: #fafafa;
     }
-   /* Navbar */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: teal;
-      padding: 10px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
 
-    .navbar .logo img {
-      height: 50px;
-    }
-
-    .navbar-links {
-      display: flex;
-      gap: 15px;
-    }
-
-    .navbar a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 8px 12px;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-    }
-
-    .navbar a:hover {
-      background-color: darkcyan;
-    }
-
-    .navbar a.active {
-      background-color: #004d4d;
-    }
     /* Carousel */
     .carousel {
       position: relative;
@@ -60,6 +23,7 @@
       background: #fff;
     }
 
+    /* Slides */
     .story-slide {
       position: absolute;
       top: 0;
@@ -77,50 +41,47 @@
       opacity: 1;
       z-index: 1;
     }
-
-    .story-slide img {
+    .story-slide img.bg {
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 20px;
     }
 
-    /* Character Picker (Slide 1) */
+    /* Character picker */
     .character-options {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 per row */
-  gap: 30px;
-  justify-items: center;
-  margin-top: 20px;
-}
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      justify-items: center;
+      margin-top: 20px;
+    }
 
-.character-option {
-  width: 180px;
-  cursor: pointer;
-  border: 4px solid transparent;
-  border-radius: 12px;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.character-option:hover {
-  transform: scale(1.1);
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
-}
-
-.character-option.selected {
-  border-color: teal;          /* highlight border */
-  box-shadow: 0px 4px 15px rgba(0,128,128,0.4);
-  transform: scale(1.15);      /* slightly larger */
-}
+    .character-option {
+      width: 100px;
+      cursor: pointer;
+      border: 4px solid transparent;
+      border-radius: 12px;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .character-option:hover {
+      transform: scale(1.1);
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+    }
+    .character-option.selected {
+      border-color: teal;
+      box-shadow: 0px 4px 15px rgba(0,128,128,0.4);
+      transform: scale(1.15);
+    }
 
     /* Characters overlay */
     .character {
       position: absolute;
       pointer-events: none;
-      display: none;
+      display: block; /* show default character */
     }
 
-    /* Character placements scaled for 900x600 */
+    /* Character placements for 900x600 carousel */
     .char1 { bottom: 18%; left: 70%; width: 40%; }
     .char2 { bottom: 20%; left: 72%; width: 38%; }
     .char3 { bottom: 20%; left: 75%; width: 38%; }
@@ -160,6 +121,7 @@
     .controls button:hover {
       background: #555;
     }
+
   </style>
 </head>
 <body>
@@ -170,7 +132,7 @@
   <div class="story-slide active" style="background:#f0f0f0;">
     <h2>Pick Your Character</h2>
     <div class="character-options">
-      <img src="char1.png" class="character-option" data-char="char1">
+      <img src="char1.png" class="character-option selected" data-char="char1">
       <img src="char2.png" class="character-option" data-char="char2">
       <img src="char3.png" class="character-option" data-char="char3">
       <img src="char4.png" class="character-option" data-char="char4">
@@ -189,23 +151,23 @@
     </div>
   </div>
 
-  <!-- Slides 2–17 (story slides) -->
-  <div class="story-slide"><img src="story1.png"><img src="" class="character char1"></div>
-  <div class="story-slide"><img src="story2.png"><img src="" class="character char2"></div>
-  <div class="story-slide"><img src="story3.png"><img src="" class="character char3"></div>
-  <div class="story-slide"><img src="story4.png"><img src="" class="character char4"></div>
-  <div class="story-slide"><img src="story5.png"><img src="" class="character char5"></div>
-  <div class="story-slide"><img src="story6.png"><img src="" class="character char6"></div>
-  <div class="story-slide"><img src="story7.png"><img src="" class="character char7"></div>
-  <div class="story-slide"><img src="story8.png"><img src="" class="character char8"></div>
-  <div class="story-slide"><img src="story9.png"><img src="" class="character char9"></div>
-  <div class="story-slide"><img src="story10.png"><img src="" class="character char10"></div>
-  <div class="story-slide"><img src="story11.png"><img src="" class="character char11"></div>
-  <div class="story-slide"><img src="story12.png"><img src="" class="character char12"></div>
-  <div class="story-slide"><img src="story13.png"><img src="" class="character char13"></div>
-  <div class="story-slide"><img src="story14.png"><img src="" class="character char14"></div>
-  <div class="story-slide"><img src="story15.png"><img src="" class="character char15"></div>
-  <div class="story-slide"><img src="story16.png"><img src="" class="character char16"></div>
+  <!-- Story slides -->
+  <div class="story-slide"><img src="story1.png" class="bg"><img src="char1.png" class="character char1"></div>
+  <div class="story-slide"><img src="story2.png" class="bg"><img src="char1.png" class="character char2"></div>
+  <div class="story-slide"><img src="story3.png" class="bg"><img src="char1.png" class="character char3"></div>
+  <div class="story-slide"><img src="story4.png" class="bg"><img src="char1.png" class="character char4"></div>
+  <div class="story-slide"><img src="story5.png" class="bg"><img src="char1.png" class="character char5"></div>
+  <div class="story-slide"><img src="story6.png" class="bg"><img src="char1.png" class="character char6"></div>
+  <div class="story-slide"><img src="story7.png" class="bg"><img src="char1.png" class="character char7"></div>
+  <div class="story-slide"><img src="story8.png" class="bg"><img src="char1.png" class="character char8"></div>
+  <div class="story-slide"><img src="story9.png" class="bg"><img src="char1.png" class="character char9"></div>
+  <div class="story-slide"><img src="story10.png" class="bg"><img src="char1.png" class="character char10"></div>
+  <div class="story-slide"><img src="story11.png" class="bg"><img src="char1.png" class="character char11"></div>
+  <div class="story-slide"><img src="story12.png" class="bg"><img src="char1.png" class="character char12"></div>
+  <div class="story-slide"><img src="story13.png" class="bg"><img src="char1.png" class="character char13"></div>
+  <div class="story-slide"><img src="story14.png" class="bg"><img src="char1.png" class="character char14"></div>
+  <div class="story-slide"><img src="story15.png" class="bg"><img src="char1.png" class="character char15"></div>
+  <div class="story-slide"><img src="story16.png" class="bg"><img src="char1.png" class="character char16"></div>
 
   <!-- Controls -->
   <div class="controls">
@@ -220,37 +182,44 @@
   const nextBtn = document.getElementById('nextBtn');
   const characterOptions = document.querySelectorAll('.character-option');
   let currentSlide = 0;
-  let chosenCharacter = "char1"; // default character
+  let chosenCharacter = "char1"; // default
 
+  // Show a slide
   function showSlide(index) {
     slides[currentSlide].classList.remove('active');
     currentSlide = (index + slides.length) % slides.length;
     slides[currentSlide].classList.add('active');
   }
 
-  nextBtn.addEventListener('click', () => {
-    showSlide(currentSlide + 1);
-  });
-  prevBtn.addEventListener('click', () => {
-    showSlide(currentSlide - 1);
-  });
+  // Next / Previous buttons
+  nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+  prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
 
+  // Character selection
   characterOptions.forEach(option => {
     option.addEventListener('click', () => {
+      // Highlight selected
+      characterOptions.forEach(opt => opt.classList.remove('selected'));
+      option.classList.add('selected');
+
       chosenCharacter = option.dataset.char;
-      // Update all story slides to use this character
+      // Update all story slides
       document.querySelectorAll('.character').forEach(char => {
         char.src = `${chosenCharacter}.png`;
+        char.style.display = "block";
       });
+
       // Move to first story slide
       showSlide(1);
     });
   });
 
-  // Default character preload
+  // Preload default character
   document.querySelectorAll('.character').forEach(char => {
     char.src = `${chosenCharacter}.png`;
+    char.style.display = "block";
   });
+
 </script>
 
 </body>
