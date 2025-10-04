@@ -10,7 +10,44 @@
       padding: 0;
       background: #fafafa;
     }
+   /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: teal;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
 
+    .navbar .logo img {
+      height: 50px;
+    }
+
+    .navbar-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .navbar a:hover {
+      background-color: darkcyan;
+    }
+
+    .navbar a.active {
+      background-color: #004d4d;
+    }
     /* Carousel */
     .carousel {
       position: relative;
@@ -48,7 +85,8 @@
       border-radius: 20px;
     }
 
-.character-options {
+    /* Character Picker (Slide 1) */
+    .character-options {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2 per row */
   gap: 30px;
@@ -74,20 +112,6 @@
   box-shadow: 0px 4px 15px rgba(0,128,128,0.4);
   transform: scale(1.15);      /* slightly larger */
 }
-// character selection
-characterOptions.forEach(option => {
-  option.addEventListener('click', () => {
-    // remove highlight from all
-    characterOptions.forEach(opt => opt.classList.remove('selected'));
-    // add highlight to chosen
-    option.classList.add('selected');
-
-    chosenCharacter = option.dataset.char;
-    updateCharacters();
-    showSlide(1); // jump into story
-  });
-});
-
 
     /* Characters overlay */
     .character {
