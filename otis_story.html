@@ -11,7 +11,32 @@
       background: #fafafa;
     }
 
-    /* Carousel */
+    /* --- Navbar --- */
+    .navbar {
+      width: 100%;
+      background: teal;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+    .navbar .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    /* --- Carousel --- */
     .carousel {
       position: relative;
       width: 900px;
@@ -23,7 +48,6 @@
       background: #fff;
     }
 
-    /* Slides */
     .story-slide {
       position: absolute;
       top: 0;
@@ -78,19 +102,19 @@
     .character {
       position: absolute;
       pointer-events: none;
-      display: block; /* show default character */
+      display: block;
     }
 
-    /* Character placements for 900x600 carousel */
-    .char1 { bottom: 18%; left: 70%; width: 40%; }
-    .char2 { bottom: 20%; left: 72%; width: 38%; }
-    .char3 { bottom: 20%; left: 75%; width: 38%; }
-    .char4 { bottom: 20%; left: 78%; width: 38%; }
-    .char5 { bottom: 20%; left: 70%; width: 35%; }
-    .char6 { bottom: 20%; left: 55%; width: 35%; }
-    .char7 { bottom: 20%; left: 70%; width: 35%; }
-    .char8 { bottom: 22%; left: 60%; width: 35%; }
-    .char9 { bottom: 15%; left: 67%; width: 35%; }
+    /* Character placements for 16 slides (adjust as needed) */
+    .char1  { bottom: 18%; left: 70%; width: 40%; }
+    .char2  { bottom: 20%; left: 68%; width: 38%; }
+    .char3  { bottom: 22%; left: 65%; width: 38%; }
+    .char4  { bottom: 20%; left: 72%; width: 36%; }
+    .char5  { bottom: 18%; left: 70%; width: 35%; }
+    .char6  { bottom: 20%; left: 60%; width: 35%; }
+    .char7  { bottom: 20%; left: 65%; width: 35%; }
+    .char8  { bottom: 22%; left: 62%; width: 35%; }
+    .char9  { bottom: 15%; left: 67%; width: 35%; }
     .char10 { bottom: 15%; left: 60%; width: 35%; }
     .char11 { bottom: 28%; left: 45%; width: 30%; }
     .char12 { bottom: 30%; left: 48%; width: 30%; }
@@ -126,101 +150,91 @@
 </head>
 <body>
 
-<div class="carousel">
-
-  <!-- Slide 1: Character picker -->
-  <div class="story-slide active" style="background:#f0f0f0;">
-    <h2>Pick Your Character</h2>
-    <div class="character-options">
-      <img src="char1.png" class="character-option selected" data-char="char1">
-      <img src="char2.png" class="character-option" data-char="char2">
-      <img src="char3.png" class="character-option" data-char="char3">
-      <img src="char4.png" class="character-option" data-char="char4">
-      <img src="char5.png" class="character-option" data-char="char5">
-      <img src="char6.png" class="character-option" data-char="char6">
-      <img src="char7.png" class="character-option" data-char="char7">
-      <img src="char8.png" class="character-option" data-char="char8">
-      <img src="char9.png" class="character-option" data-char="char9">
-      <img src="char10.png" class="character-option" data-char="char10">
-      <img src="char11.png" class="character-option" data-char="char11">
-      <img src="char12.png" class="character-option" data-char="char12">
-      <img src="char13.png" class="character-option" data-char="char13">
-      <img src="char14.png" class="character-option" data-char="char14">
-      <img src="char15.png" class="character-option" data-char="char15">
-      <img src="char16.png" class="character-option" data-char="char16">
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">My Carousel</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Gallery</a>
+      <a href="#">About</a>
     </div>
   </div>
 
-  <!-- Story slides -->
-  <div class="story-slide"><img src="story1.png" class="bg"><img src="char1.png" class="character char1"></div>
-  <div class="story-slide"><img src="story2.png" class="bg"><img src="char1.png" class="character char2"></div>
-  <div class="story-slide"><img src="story3.png" class="bg"><img src="char1.png" class="character char3"></div>
-  <div class="story-slide"><img src="story4.png" class="bg"><img src="char1.png" class="character char4"></div>
-  <div class="story-slide"><img src="story5.png" class="bg"><img src="char1.png" class="character char5"></div>
-  <div class="story-slide"><img src="story6.png" class="bg"><img src="char1.png" class="character char6"></div>
-  <div class="story-slide"><img src="story7.png" class="bg"><img src="char1.png" class="character char7"></div>
-  <div class="story-slide"><img src="story8.png" class="bg"><img src="char1.png" class="character char8"></div>
-  <div class="story-slide"><img src="story9.png" class="bg"><img src="char1.png" class="character char9"></div>
-  <div class="story-slide"><img src="story10.png" class="bg"><img src="char1.png" class="character char10"></div>
-  <div class="story-slide"><img src="story11.png" class="bg"><img src="char1.png" class="character char11"></div>
-  <div class="story-slide"><img src="story12.png" class="bg"><img src="char1.png" class="character char12"></div>
-  <div class="story-slide"><img src="story13.png" class="bg"><img src="char1.png" class="character char13"></div>
-  <div class="story-slide"><img src="story14.png" class="bg"><img src="char1.png" class="character char14"></div>
-  <div class="story-slide"><img src="story15.png" class="bg"><img src="char1.png" class="character char15"></div>
-  <div class="story-slide"><img src="story16.png" class="bg"><img src="char1.png" class="character char16"></div>
+  <!-- Carousel -->
+  <div class="carousel">
 
-  <!-- Controls -->
-  <div class="controls">
-    <button id="prevBtn">Previous</button>
-    <button id="nextBtn">Next</button>
+    <!-- Slide 1: Character picker -->
+    <div class="story-slide active" style="background:#f0f0f0;">
+      <h2>Pick Your Character</h2>
+      <div class="character-options">
+        <img src="boy1.png" class="character-option selected" data-char="boy1">
+        <img src="boy2.png" class="character-option" data-char="boy2">
+        <img src="girl1.png" class="character-option" data-char="girl1">
+        <img src="girl2.png" class="character-option" data-char="girl2">
+      </div>
+    </div>
+
+    <!-- 16 Story slides -->
+    <div class="story-slide"><img src="story1.png" class="bg"><img src="boy1.png" class="character char1"></div>
+    <div class="story-slide"><img src="story2.png" class="bg"><img src="boy1.png" class="character char2"></div>
+    <div class="story-slide"><img src="story3.png" class="bg"><img src="boy1.png" class="character char3"></div>
+    <div class="story-slide"><img src="story4.png" class="bg"><img src="boy1.png" class="character char4"></div>
+    <div class="story-slide"><img src="story5.png" class="bg"><img src="boy1.png" class="character char5"></div>
+    <div class="story-slide"><img src="story6.png" class="bg"><img src="boy1.png" class="character char6"></div>
+    <div class="story-slide"><img src="story7.png" class="bg"><img src="boy1.png" class="character char7"></div>
+    <div class="story-slide"><img src="story8.png" class="bg"><img src="boy1.png" class="character char8"></div>
+    <div class="story-slide"><img src="story9.png" class="bg"><img src="boy1.png" class="character char9"></div>
+    <div class="story-slide"><img src="story10.png" class="bg"><img src="boy1.png" class="character char10"></div>
+    <div class="story-slide"><img src="story11.png" class="bg"><img src="boy1.png" class="character char11"></div>
+    <div class="story-slide"><img src="story12.png" class="bg"><img src="boy1.png" class="character char12"></div>
+    <div class="story-slide"><img src="story13.png" class="bg"><img src="boy1.png" class="character char13"></div>
+    <div class="story-slide"><img src="story14.png" class="bg"><img src="boy1.png" class="character char14"></div>
+    <div class="story-slide"><img src="story15.png" class="bg"><img src="boy1.png" class="character char15"></div>
+    <div class="story-slide"><img src="story16.png" class="bg"><img src="boy1.png" class="character char16"></div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <button id="prevBtn">Previous</button>
+      <button id="nextBtn">Next</button>
+    </div>
   </div>
-</div>
 
-<script>
-  const slides = document.querySelectorAll('.story-slide');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  const characterOptions = document.querySelectorAll('.character-option');
-  let currentSlide = 0;
-  let chosenCharacter = "char1"; // default
+  <script>
+    const slides = document.querySelectorAll('.story-slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const characterOptions = document.querySelectorAll('.character-option');
+    let currentSlide = 0;
+    let chosenCharacter = "boy1";
 
-  // Show a slide
-  function showSlide(index) {
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (index + slides.length) % slides.length;
-    slides[currentSlide].classList.add('active');
-  }
+    function showSlide(index) {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (index + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }
 
-  // Next / Previous buttons
-  nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
-  prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+    nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+    prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
 
-  // Character selection
-  characterOptions.forEach(option => {
-    option.addEventListener('click', () => {
-      // Highlight selected
-      characterOptions.forEach(opt => opt.classList.remove('selected'));
-      option.classList.add('selected');
-
-      chosenCharacter = option.dataset.char;
-      // Update all story slides
-      document.querySelectorAll('.character').forEach(char => {
-        char.src = `${chosenCharacter}.png`;
-        char.style.display = "block";
+    characterOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        characterOptions.forEach(opt => opt.classList.remove('selected'));
+        option.classList.add('selected');
+        chosenCharacter = option.dataset.char;
+        document.querySelectorAll('.character').forEach(char => {
+          char.src = `${chosenCharacter}.png`;
+          char.style.display = "block";
+        });
+        showSlide(1); // jump to first story slide
       });
-
-      // Move to first story slide
-      showSlide(1);
     });
-  });
 
-  // Preload default character
-  document.querySelectorAll('.character').forEach(char => {
-    char.src = `${chosenCharacter}.png`;
-    char.style.display = "block";
-  });
-
-</script>
+    // preload default character
+    document.querySelectorAll('.character').forEach(char => {
+      char.src = `${chosenCharacter}.png`;
+      char.style.display = "block";
+    });
+  </script>
 
 </body>
 </html>
