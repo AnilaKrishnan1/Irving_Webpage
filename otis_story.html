@@ -2,244 +2,218 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Character Story Carousel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Otis Stories</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Lexend', sans-serif;
       margin: 0;
       padding: 0;
-      background: #fafafa;
+      background: #f0f9f9;
+      text-align: center;
     }
 
-/* Navbar */
+    /* Navbar (unchanged) */
     .navbar {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      justify-content: center;
       background-color: teal;
-      padding: 10px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
-
-    .navbar .logo img {
-      height: 50px;
-    }
-
-    .navbar-links {
-      display: flex;
-      gap: 15px;
-    }
-
     .navbar a {
       color: white;
+      padding: 14px 20px;
       text-decoration: none;
       font-weight: bold;
-      padding: 8px 12px;
-      border-radius: 5px;
-      transition: background-color 0.3s;
     }
-
     .navbar a:hover {
       background-color: darkcyan;
     }
-
     .navbar a.active {
       background-color: #004d4d;
     }
 
-    /* --- Carousel --- */
+    /* Carousel */
     .carousel {
       position: relative;
-      width: 900px;
+      width: 900px;  /* bigger story view */
       height: 600px;
-      margin: 40px auto;
+      margin: 30px auto;
+      border-radius: 15px;
       overflow: hidden;
-      border-radius: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      background: #fff;
+      background: white;
     }
-
-    .story-slide {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: opacity 0.6s ease-in-out;
+    .slides {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+      transition: transform 0.5s ease-in-out;
     }
-    .story-slide.active {
-      opacity: 1;
-      z-index: 1;
+    .slide {
+      position: relative;
+      min-width: 100%;
+      height: 100%;
     }
-    .story-slide img.bg {
+    .background {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 20px;
     }
 
-    /* Character picker */
-    .character-options {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      justify-items: center;
-      margin-top: 20px;
-    }
-
-    .character-option {
-      width: 100px;
-      cursor: pointer;
-      border: 4px solid transparent;
-      border-radius: 12px;
-      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-    .character-option:hover {
-      transform: scale(1.1);
-      box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
-    }
-    .character-option.selected {
-      border-color: teal;
-      box-shadow: 0px 4px 15px rgba(0,128,128,0.4);
-      transform: scale(1.15);
-    }
-
-    /* Characters overlay */
+    /* Characters */
     .character {
       position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 35%;   /* consistent size */
       pointer-events: none;
-      display: block;
+      display: none;
     }
-
-    /* Character placements for 16 slides (adjust as needed) */
-    .char1  { bottom: 18%; left: 70%; width: 40%; }
-    .char2  { bottom: 20%; left: 68%; width: 38%; }
-    .char3  { bottom: 22%; left: 65%; width: 38%; }
-    .char4  { bottom: 20%; left: 72%; width: 36%; }
-    .char5  { bottom: 18%; left: 70%; width: 35%; }
-    .char6  { bottom: 20%; left: 60%; width: 35%; }
-    .char7  { bottom: 20%; left: 65%; width: 35%; }
-    .char8  { bottom: 22%; left: 62%; width: 35%; }
-    .char9  { bottom: 15%; left: 67%; width: 35%; }
-    .char10 { bottom: 15%; left: 60%; width: 35%; }
-    .char11 { bottom: 28%; left: 45%; width: 30%; }
-    .char12 { bottom: 30%; left: 48%; width: 30%; }
-    .char13 { bottom: 20%; left: 55%; width: 35%; }
-    .char14 { bottom: 20%; left: 58%; width: 35%; }
-    .char15 { bottom: 20%; left: 60%; width: 35%; }
-    .char16 { bottom: 20%; left: 60%; width: 35%; }
+    /* tweak for certain slides if needed */
+    .char2 { left: 60%; bottom: 15%; }
+    .char3 { left: 40%; bottom: 12%; }
+    .char6 { left: 50%; bottom: 20%; width: 30%; }
 
     /* Controls */
     .controls {
-      position: absolute;
-      bottom: 15px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 15px;
+      margin-top: 15px;
     }
     .controls button {
-      padding: 10px 18px;
-      font-size: 16px;
+      padding: 10px 20px;
+      margin: 0 5px;
       border: none;
+      background: teal;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
       border-radius: 8px;
       cursor: pointer;
-      background: #333;
-      color: white;
-      transition: background 0.3s;
     }
     .controls button:hover {
-      background: #555;
+      background: darkcyan;
     }
 
+    /* Slide counter */
+    #slide-number {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 5px 12px;
+      border-radius: 12px;
+      font-size: 14px;
+    }
+
+    /* Character picker slide */
+    .picker {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+    .picker p {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    .picker img {
+      width: 200px;
+      margin: 10px;
+      cursor: pointer;
+      border: 3px solid transparent;
+      border-radius: 12px;
+      transition: 0.3s;
+    }
+    .picker img:hover {
+      border-color: teal;
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
-
+  <div class="navbar">
+    <a href="index.html">Map</a>
+    <a href="otis_story.html" class="active">Stories</a>
+    <a href="something.html">Something Else</a>
+  </div>
 
   <!-- Carousel -->
   <div class="carousel">
-
-    <!-- Slide 1: Character picker -->
-    <div class="story-slide active" style="background:#f0f0f0;">
-      <h2>Pick Your Character</h2>
-      <div class="character-options">
-        <img src="boy1.png" class="character-option selected" data-char="boy1">
-        <img src="boy2.png" class="character-option" data-char="boy2">
-        <img src="girl1.png" class="character-option" data-char="girl1">
-        <img src="girl2.png" class="character-option" data-char="girl2">
+    <div class="slides">
+      <!-- Slide 1: Character picker -->
+      <div class="slide">
+        <div class="picker">
+          <p>Choose your character:</p>
+          <div>
+            <img src="boy1.png" alt="Character 1" onclick="swapCharacter('boy1.png')">
+            <img src="boy2.png" alt="Character 2" onclick="swapCharacter('boy2.png')">
+            <img src="girl1.png" alt="Character 3" onclick="swapCharacter('girl1.png')">
+            <img src="girl2.png" alt="Character 4" onclick="swapCharacter('girl2.png')">
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- 16 Story slides -->
-    <div class="story-slide"><img src="1.png" class="bg"><img src="boy1.png" class="character char1"></div>
-    <div class="story-slide"><img src="2.png" class="bg"><img src="boy1.png" class="character char2"></div>
-    <div class="story-slide"><img src="3.png" class="bg"><img src="boy1.png" class="character char3"></div>
-    <div class="story-slide"><img src="4.png" class="bg"><img src="boy1.png" class="character char4"></div>
-    <div class="story-slide"><img src="5.png" class="bg"><img src="boy1.png" class="character char5"></div>
-    <div class="story-slide"><img src="6.png" class="bg"><img src="boy1.png" class="character char6"></div>
-    <div class="story-slide"><img src="7.png" class="bg"><img src="boy1.png" class="character char7"></div>
-    <div class="story-slide"><img src="8.png" class="bg"><img src="boy1.png" class="character char8"></div>
-    <div class="story-slide"><img src="9.png" class="bg"><img src="boy1.png" class="character char9"></div>
-    <div class="story-slide"><img src="10.png" class="bg"><img src="boy1.png" class="character char10"></div>
-    <div class="story-slide"><img src="11.png" class="bg"><img src="boy1.png" class="character char11"></div>
-    <div class="story-slide"><img src="12.png" class="bg"><img src="boy1.png" class="character char12"></div>
-    <div class="story-slide"><img src="12.png" class="bg"><img src="boy1.png" class="character char13"></div>
-    <div class="story-slide"><img src="13.png" class="bg"><img src="boy1.png" class="character char12"></div>
-    <div class="story-slide"><img src="14.png" class="bg"><img src="boy1.png" class="character char14"></div>
-    <div class="story-slide"><img src="15.png" class="bg"><img src="boy1.png" class="character char15"></div>
-
-    <!-- Controls -->
-    <div class="controls">
-      <button id="prevBtn">Previous</button>
-      <button id="nextBtn">Next</button>
+      <!-- Slide 2 onward: Story scenes -->
+      <div class="slide">
+        <img class="background" src="1.png" alt="Scene 1">
+        <img class="character char2" alt="Character">
+      </div>
+      <div class="slide">
+        <img class="background" src="2.png" alt="Scene 2">
+        <img class="character char3" alt="Character">
+      </div>
+      <div class="slide">
+        <img class="background" src="3.png" alt="Scene 3">
+        <img class="character char4" alt="Character">
+      </div>
+      <!-- continue for all scenes -->
     </div>
+    <div id="slide-number">Slide 1</div>
+  </div>
+
+  <!-- Navigation buttons -->
+  <div class="controls">
+    <button onclick="prevSlide()">⟨ Prev</button>
+    <button onclick="nextSlide()">Next ⟩</button>
   </div>
 
   <script>
-    const slides = document.querySelectorAll('.story-slide');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const characterOptions = document.querySelectorAll('.character-option');
-    let currentSlide = 0;
-    let chosenCharacter = "boy1";
+    let currentIndex = 0;
+    const slides = document.querySelector('.slides');
+    const slideElements = document.querySelectorAll('.slide');
+    const totalSlides = slideElements.length;
 
+    // Show slide
     function showSlide(index) {
-      slides[currentSlide].classList.remove('active');
-      currentSlide = (index + slides.length) % slides.length;
-      slides[currentSlide].classList.add('active');
+      if (index >= totalSlides) index = 0;
+      if (index < 0) index = totalSlides - 1;
+      currentIndex = index;
+      slides.style.transform = `translateX(-${index * 100}%)`;
+      updateSlideNumber();
     }
 
-    nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
-    prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+    function nextSlide() { showSlide(currentIndex + 1); }
+    function prevSlide() { showSlide(currentIndex - 1); }
 
-    characterOptions.forEach(option => {
-      option.addEventListener('click', () => {
-        characterOptions.forEach(opt => opt.classList.remove('selected'));
-        option.classList.add('selected');
-        chosenCharacter = option.dataset.char;
-        document.querySelectorAll('.character').forEach(char => {
-          char.src = `${chosenCharacter}.png`;
-          char.style.display = "block";
-        });
-        showSlide(1); // jump to first story slide
+    function updateSlideNumber() {
+      document.getElementById("slide-number").innerText =
+        `Slide ${currentIndex + 1} of ${totalSlides}`;
+    }
+
+    // Character picker (default = boy1)
+    function swapCharacter(imgSrc = 'boy1.png') {
+      document.querySelectorAll('.character').forEach(char => {
+        char.src = imgSrc;
+        char.style.display = "block";
       });
-    });
+    }
 
-    // preload default character
-    document.querySelectorAll('.character').forEach(char => {
-      char.src = `${chosenCharacter}.png`;
-      char.style.display = "block";
-    });
+    // Initialize with default character
+    window.onload = function() {
+      swapCharacter('boy1.png');
+      showSlide(0);
+    }
   </script>
-
 </body>
 </html>
