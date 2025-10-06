@@ -11,29 +11,43 @@
       background: #fafafa;
     }
 
-    /* --- Navbar --- */
+/* Navbar */
     .navbar {
-      width: 100%;
-      background: teal;
-      color: white;
-      padding: 15px 30px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      align-items: center;
+      background-color: teal;
+      padding: 10px 20px;
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
+
+    .navbar .logo img {
+      height: 50px;
+    }
+
+    .navbar-links {
+      display: flex;
+      gap: 15px;
+    }
+
     .navbar a {
       color: white;
       text-decoration: none;
-      margin-left: 20px;
       font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
     }
-    .navbar .logo {
-      font-size: 24px;
-      font-weight: bold;
+
+    .navbar a:hover {
+      background-color: darkcyan;
+    }
+
+    .navbar a.active {
+      background-color: #004d4d;
     }
 
     /* --- Carousel --- */
@@ -150,15 +164,6 @@
 </head>
 <body>
 
-  <!-- Navbar -->
-  <div class="navbar">
-    <div class="logo">My Carousel</div>
-    <div class="nav-links">
-      <a href="#">Home</a>
-      <a href="#">Gallery</a>
-      <a href="#">About</a>
-    </div>
-  </div>
 
   <!-- Carousel -->
   <div class="carousel">
