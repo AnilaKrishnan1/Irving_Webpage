@@ -88,23 +88,7 @@
       pointer-events: none;
       display: none;
     }
-    /* tweak for certain slides if needed */
-    /*
-    .char1 { left: 110%; bottom: 15%; width: 93%;}
-    .char2 { left: 110%; bottom: 15%; width: 93%;}
-    .char3 { left: 90%; bottom: 15%; width: 100%;}
-    .char5 { left: 90%; bottom: 15%; width: 100%;}
-    .char6 { left: 70%; bottom: 12%; width: 100%;}
-    .char7 { left: 110%; bottom: 15%; width: 100%;}
-    .char8 { left: 60%; bottom: 15%;width: 200%; }
-    .char9 { left: 60%; bottom: 15%; }
-    .char10 { left: 60%; bottom: 15%; }
-    .char11 { left: 60%; bottom: 15%; }
-    .char12 { left: 60%; bottom: 15%; }
-    .char13 { left: 60%; bottom: 15%; }
-    .char14 { left: 60%; bottom: 15%; }
-    .char15 { left: 60%; bottom: 15%; } 
-*/
+
     .char1 { left: 110%; bottom: 15%; width: 93%; }
     .char2 { left: 110%; bottom: 15%; width: 93%; }
     .char3 { left: 90%;  bottom: 15%; width: 100%; }
@@ -154,7 +138,7 @@
     }
 
     /* Character picker slide */
-   /* .picker {
+   .picker {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -178,32 +162,9 @@
       border-color: teal;
       transform: scale(1.05);
     }
-    *?
+    
      /* Character picker */
-    .character-options {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      justify-items: center;
-      margin-top: 20px;
-    }
-
-    .character-option {
-      width: 100px;
-      cursor: pointer;
-      border: 4px solid transparent;
-      border-radius: 12px;
-      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-    .character-option:hover {
-      transform: scale(1.1);
-      box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
-    }
-    .character-option.selected {
-      border-color: teal;
-      box-shadow: 0px 4px 15px rgba(0,128,128,0.4);
-      transform: scale(1.15);
-    }
+   
 
     /* Responsive navbar */
     @media (max-width: 600px) {
@@ -240,7 +201,7 @@
       <!-- Slide 1: Character picker -->
       <div class="slide">
         <div class="picker">
-      <!-- <p>Choose your character:</p>
+      <p>Choose your character:</p>
           <div>
             <img src="boy1.png" alt="Character 1" onclick="swapCharacter('boy1.png')">
             <img src="boy2.png" alt="Character 2" onclick="swapCharacter('boy2.png')">
@@ -249,18 +210,7 @@
           </div>
         </div>
       </div>
-      -->
-    <!-- Slide 1: Character picker -->
-    <div class="story-slide active" style="background:#f0f0f0;">
-      <h2>Pick Your Character</h2>
-      <div class="character-options">
-        <img src="boy1.png" class="character-option selected" data-char="boy1">
-        <img src="boy2.png" class="character-option" data-char="boy2">
-        <img src="girl1.png" class="character-option" data-char="girl1">
-        <img src="girl2.png" class="character-option" data-char="girl2">
-      </div>
-    </div>
-
+  
       <!-- Slide 2 onward: Story scenes -->
       <div class="slide">
         <img class="background" src="1.png" alt="Scene 1">
@@ -339,8 +289,6 @@
     const slides = document.querySelector('.slides');
     const slideElements = document.querySelectorAll('.slide');
     const totalSlides = slideElements.length;
-    const characterOptions = document.querySelectorAll('.character-option');
-    let chosenCharacter = "boy1";
 
     // Show slide
     function showSlide(index) {
@@ -358,32 +306,16 @@
       document.getElementById("slide-number").innerText =
         `Slide ${currentIndex + 1} of ${totalSlides}`;
     }
-    characterOptions.forEach(option => {
-      option.addEventListener('click', () => {
-        characterOptions.forEach(opt => opt.classList.remove('selected'));
-        option.classList.add('selected');
-        chosenCharacter = option.dataset.char;
-        document.querySelectorAll('.character').forEach(char => {
-          char.src = `${chosenCharacter}.png`;
-          char.style.display = "block";
-        });
-        showSlide(1); // jump to first story slide
-      });
-    });
 
-    // preload default character
-    document.querySelectorAll('.character').forEach(char => {
-      char.src = `${chosenCharacter}.png`;
-      char.style.display = "block";
-    });
+
     // Character picker (default = boy1)
- /*   function swapCharacter(imgSrc = 'boy1.png') {
+  function swapCharacter(imgSrc = 'boy1.png') {
       document.querySelectorAll('.character').forEach(char => {
         char.src = imgSrc;
         char.style.display = "block";
       });
     }
-*/
+
     
     // Initialize with default character
     window.onload = function() {
