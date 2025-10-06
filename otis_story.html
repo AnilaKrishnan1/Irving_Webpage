@@ -162,7 +162,13 @@
       border-color: teal;
       transform: scale(1.05);
     }
-    
+    /* Highlight selected character */
+  .picker img.selected {
+    border-color: teal;
+    box-shadow: 0 0 15px rgba(0, 128, 128, 0.4);
+    transform: scale(1.1);
+}
+
      /* Character picker */
    
 
@@ -308,13 +314,22 @@
     }
 
 
-    // Character picker (default = boy1)
-  function swapCharacter(imgSrc = 'boy1.png') {
-      document.querySelectorAll('.character').forEach(char => {
-        char.src = imgSrc;
-        char.style.display = "block";
-      });
-    }
+function swapCharacter(imgSrc) {
+  // Update all story characters
+  document.querySelectorAll('.character').forEach(char => {
+    char.src = imgSrc;
+    char.style.display = "block";
+  });
+
+  // Remove highlight from all character choices
+  document.querySelectorAll('.picker img').forEach(img => {
+    img.classList.remove('selected');
+  });
+
+  // Highlight the one that was clicked
+  const clickedImg = [...document.querySelectorAll('.picker img')].find(img => img.src.includes(imgSrc));
+  if (clickedImg) clickedImg.classList.add('selected');
+}
 
     
     // Initialize with default character
