@@ -281,11 +281,20 @@ const tabData = [
   },
 ];
 
-// Function to update info box
-function showTabInfo(index) {
+function showSlide(index) {
+  if (index >= totalSlides) index = 0;
+  if (index < 0) index = totalSlides - 1;
+  currentIndex = index;
+  slides.style.transform = `translateX(-${index * 100}%)`;
+  updateSlideNumber();
+  updateTabInfo(index); // 
+}
+
+function updateTabInfo(index) {
   const data = tabData[index];
-  document.getElementById("location-title").innerText = data.title;
+  if (!data) return; // If tabData not defined for this slide
   const img = document.getElementById("location-image");
+  document.getElementById("location-title").innerText = data.title;
   img.src = data.image;
   img.style.display = "block";
   document.getElementById("location-description").innerText = data.description;
@@ -294,6 +303,7 @@ function showTabInfo(index) {
   link.style.display = "block";
   link.innerText = "Visit Website";
 }
+
 
   </script>
 </body>
