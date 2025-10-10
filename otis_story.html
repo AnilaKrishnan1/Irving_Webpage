@@ -10,10 +10,17 @@
       margin: 0;
       font-family: 'Lexend', sans-serif;
       background-color: #f0f9f9;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .main-content {
+      flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      padding: 40px 20px;
     }
 
     .choice-container {
@@ -115,9 +122,11 @@
 </head>
 <body>
     <!-- Navbar -->
+<body>
+  <!-- Navbar -->
   <div class="navbar">
     <a href="index.html" class="logo">
-      <img src="museum_logo.png"  alt="Irving History Logo">
+      <img src="museum_logo.png" alt="Irving History Logo">
     </a>
     <div class="navbar-links">
       <a href="index.html" class="active">Map</a>
@@ -126,16 +135,21 @@
     </div>
   </div>
 
-  <div class="choice-container">
-    <a href="story1.html" class="choice-box">
-      <h2>The Missing Piece</h2>
-      <p>Follow a character of your choice around Irving as they try to return a piece of art to where it belongs! Come on this fun adventure and learn about the murals of Irving. All scenery in Irving!</p>
-    </a>
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="choice-container">
+      <a href="story1.html" class="choice-box">
+        <h2>The Missing Piece</h2>
+        <p>Follow a character of your choice around Irving as they try to return a piece of art to where it belongs! Come on this fun adventure and learn about the murals of Irving. All scenery in Irving!</p>
+      </a>
 
-    <a href="story2.html" class="choice-box">
-      <h2>Otis' Musical Adventure</h2>
-      <p>Join Otis as he joins a music competition! It's a story of remarkable talent with a surprise ending. All scenery in Irving!</p>
-    </a>
-  </div>
+      <a href="story2.html" class="choice-box">
+        <h2>Otis' Musical Adventure</h2>
+        <p>Join Otis as he joins a music competition! It's a story of remarkable talent with a surprise ending. All scenery in Irving!</p>
+      </a>
+    </div>
+  </main>
+</body>
+
 </body>
 </html>
