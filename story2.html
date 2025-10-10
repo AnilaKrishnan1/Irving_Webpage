@@ -26,16 +26,13 @@
       z-index: 1000;
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
-
     .navbar .logo img {
       height: 50px;
     }
-
     .navbar-links {
       display: flex;
       gap: 15px;
     }
-
     .navbar a {
       color: white;
       text-decoration: none;
@@ -44,19 +41,13 @@
       border-radius: 5px;
       transition: background-color 0.3s;
     }
+    .navbar a:hover { background-color: darkcyan; }
+    .navbar a.active { background-color: #004d4d; }
 
-    .navbar a:hover {
-      background-color: darkcyan;
-    }
-
-    .navbar a.active {
-      background-color: #004d4d;
-    }
-
-      /* Carousel */
+    /* Carousel */
     .carousel {
       position: relative;
-      width: 900px;  /* bigger story view */
+      width: 900px;
       height: 600px;
       margin: 30px auto;
       border-radius: 15px;
@@ -68,7 +59,6 @@
       transition: transform 0.5s ease-in-out;
     }
     .slide {
-      position: relative;
       min-width: 100%;
       height: 100%;
     }
@@ -77,7 +67,8 @@
       height: 100%;
       object-fit: cover;
     }
-   /* Controls */
+
+    /* Controls */
     .controls {
       margin-top: 15px;
     }
@@ -92,9 +83,7 @@
       border-radius: 8px;
       cursor: pointer;
     }
-    .controls button:hover {
-      background: darkcyan;
-    }
+    .controls button:hover { background: darkcyan; }
 
     /* Slide counter */
     #slide-number {
@@ -107,61 +96,38 @@
       border-radius: 12px;
       font-size: 14px;
     }
-/* For the information tabs */
-.side-tabs {
-  position: fixed;
-  top: 150px;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  z-index: 1000;
-}
 
-.tab {
-  background-color: teal;
-  color: white;
-  padding: 12px 20px;
-  cursor: pointer;
-  margin: 5px 0;
-  border-radius: 8px 0 0 8px;
-  transition: background-color 0.3s;
-  text-align: center;
-}
+    /* Info box */
+    .tab-info {
+      position: fixed;
+      top: 150px;
+      right: 30px;
+      width: 300px;
+      background: white;
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      text-align: left;
+      z-index: 1000;
+    }
+    .tab-info img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .tab-info a {
+      display: block;
+      margin-top: 10px;
+      color: teal;
+      text-decoration: underline;
+    }
 
-.tab:hover {
-  background-color: darkcyan;
-}
-
-.tab-info {
-  position: fixed;
-  top: 150px;
-  right: 130px;
-  width: 300px;
-  background: white;
-  padding: 15px 20px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-.tab-info img {
-  max-width: 100%;
-  border-radius: 8px;
-}
-.tab-info a {
-  display: block;
-  margin-top: 10px;
-  color: teal;
-  text-decoration: underline;
-}
-
-  
   </style>
 </head>
 <body>
-    <!-- Navbar -->
+  <!-- Navbar -->
   <div class="navbar">
-    <a href="index.html" class="logo">
-      <img src="museum_logo.png"  alt="Irving History Logo">
-    </a>
+    <a href="index.html" class="logo"><img src="museum_logo.png" alt="Irving History Logo"></a>
     <div class="navbar-links">
       <a href="index.html" class="active">Map</a>
       <a href="otis_story.html">Stories</a>
@@ -171,199 +137,139 @@
 
   <!-- Carousel -->
   <div class="carousel">
-      <!-- Story scenes -->
-    <div class = "slides">
-      <div class="slide">
-        <img class="background" src="Story2_1.png" alt="Scene 1">
-      </div>
-      <div class="slide">
-        <img class="background" src="Story2_2.png" alt="Scene 2">
-      </div>
-      <div class="slide">
-        <img class="background" src="Story2_3.png" alt="Scene 3">
-      </div>
-      <div class="slide">
-        <img class="background" src="Story2_4.png" alt="Scene 4">
-      </div>
-        <div class="slide">
-        <img class="background" src="Story2_5.png" alt="Scene 5">
-      </div>
-      <div class="slide">
-        <img class="background" src="Story2_6.png" alt="Scene 6">
-      </div>
-      <div class="slide">
-        <img class="background" src="Story2_7.png" alt="Scene 7">
-      </div>
-      <div class="slide">
-        <img class="background" src="Story2_8.png" alt="Scene 8">
-      </div>
-      <div class="slide">
-        <img class="background" src="Story2_9.png" alt="Scene 9">
-      </div>
-      <div class="slide">
-        <img class="background" src="Story2_10.png" alt="Scene 10">
-      </div>
-        <div class="slide">
-        <img class="background" src="Story2_11.png" alt="Scene 11">
-      </div>
-        <div class="slide">
-        <img class="background" src="Story2_12.png" alt="Scene 12">
-      </div>
+    <div class="slides">
+      <div class="slide"><img class="background" src="Story2_1.png" alt="Scene 1"></div>
+      <div class="slide"><img class="background" src="Story2_2.png" alt="Scene 2"></div>
+      <div class="slide"><img class="background" src="Story2_3.png" alt="Scene 3"></div>
+      <div class="slide"><img class="background" src="Story2_4.png" alt="Scene 4"></div>
+      <div class="slide"><img class="background" src="Story2_5.png" alt="Scene 5"></div>
+      <div class="slide"><img class="background" src="Story2_6.png" alt="Scene 6"></div>
+      <div class="slide"><img class="background" src="Story2_7.png" alt="Scene 7"></div>
+      <div class="slide"><img class="background" src="Story2_8.png" alt="Scene 8"></div>
+      <div class="slide"><img class="background" src="Story2_9.png" alt="Scene 9"></div>
+      <div class="slide"><img class="background" src="Story2_10.png" alt="Scene 10"></div>
+      <div class="slide"><img class="background" src="Story2_11.png" alt="Scene 11"></div>
+      <div class="slide"><img class="background" src="Story2_12.png" alt="Scene 12"></div>
     </div>
-      <div id="slide-number">Slide 1</div>
-</div>
+    <div id="slide-number">Slide 1</div>
+  </div>
+
   <!-- Navigation buttons -->
   <div class="controls">
     <button onclick="prevSlide()">⟨ Prev</button>
     <button onclick="nextSlide()">Next ⟩</button>
   </div>
-<!-- Side tabs -->
-<div class="side-tabs">
-  <div class="tab" onclick="showTabInfo(0)">Scene 1</div>
-  <div class="tab" onclick="showTabInfo(1)">Scene 2</div>
-  <div class="tab" onclick="showTabInfo(2)">Scene 3</div>
-  <div class="tab" onclick="showTabInfo(3)">Scene 4</div>
-  <div class="tab" onclick="showTabInfo(4)">Scene 5</div>
-  <div class="tab" onclick="showTabInfo(5)">Scene 6</div>
-  <div class="tab" onclick="showTabInfo(6)">Scene 7</div>
-  <div class="tab" onclick="showTabInfo(7)">Scene 8</div>
-  <div class="tab" onclick="showTabInfo(8)">Scene 9</div>
-  <div class="tab" onclick="showTabInfo(9)">Scene 10</div>
-  <div class="tab" onclick="showTabInfo(10)">Scene 11</div>
-  <div class="tab" onclick="showTabInfo(11)">Scene 12</div>
-
-</div>
-       <!-- Tab info box -->
-<div class="tab-info" id="tab-info">
-  <h3 id="location-title">Select a scene</h3>
-  <img id="location-image" src="" alt="Location Image" style="width:100%; border-radius:8px; margin-bottom:10px; display:none;">
-  <p id="location-description">Click next to see details about the location.</p>
-  <a id="location-link" href="#" target="_blank" style="display:none;">Visit Website</a>
-</div>
 
   <script>
-    let currentIndex = 0;
     const slides = document.querySelector('.slides');
     const slideElements = document.querySelectorAll('.slide');
     const totalSlides = slideElements.length;
+    let currentIndex = 0;
 
-    // Show slide
+    const tabData = [
+      {
+        title: "Toyota Music Factory",
+        image: "Toyota_Music_Factory.webp",
+        description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
+        link: "https://www.toyotamusicfactory.com"
+      },
+      {
+        title: "Toyota Music Factory",
+        image: "Toyota_Music_Factory.webp",
+        description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
+        link: "https://www.toyotamusicfactory.com"
+      },
+    {
+        title: "Toyota Music Factory",
+        image: "Toyota_Music_Factory.webp",
+        description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
+        link: "https://www.toyotamusicfactory.com"
+      },
+      {
+        title: "Toyota Music Factory",
+        image: "Toyota_Music_Factory.webp",
+        description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
+        link: "https://www.toyotamusicfactory.com"
+      },
+      {
+        title: "Toyota Music Factory",
+        image: "Toyota_Music_Factory.webp",
+        description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
+        link: "https://www.toyotamusicfactory.com"
+      },
+      {
+        title: "Toyota Music Factory",
+        image: "Toyota_Music_Factory.webp",
+        description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
+        link: "https://www.toyotamusicfactory.com"
+        }
+      {
+        title: "Toyota Music Factory",
+        image: "Toyota_Music_Factory.webp",
+        description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
+        link: "https://www.toyotamusicfactory.com"
+      },
+    {
+        title: "Toyota Music Factory",
+        image: "Toyota_Music_Factory.webp",
+        description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
+        link: "https://www.toyotamusicfactory.com"
+      },
+    {
+        title: "Toyota Music Factory",
+        image: "Toyota_Music_Factory.webp",
+        description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
+        link: "https://www.toyotamusicfactory.com"
+      },
+    {
+        title: "Toyota Music Factory",
+        image: "Toyota_Music_Factory.webp",
+        description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
+        link: "https://www.toyotamusicfactory.com"
+      },
+    {
+        title: "Toyota Music Factory",
+        image: "Toyota_Music_Factory.webp",
+        description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
+        link: "https://www.toyotamusicfactory.com"
+      },
+      {
+        title: "Las Colinas Mustangs",
+        image: "mustangs.png",
+        description: "Otis finishes his journey at the Las Colinas Mustangs statue, his rightful place.",
+        link: "https://www.irvingarchivesandmuseum.com/mustangs-of-las-colinas"
+      }
+    ];
+
     function showSlide(index) {
       if (index >= totalSlides) index = 0;
       if (index < 0) index = totalSlides - 1;
       currentIndex = index;
       slides.style.transform = `translateX(-${index * 100}%)`;
       updateSlideNumber();
+      updateTabInfo(index);
     }
 
     function nextSlide() { showSlide(currentIndex + 1); }
     function prevSlide() { showSlide(currentIndex - 1); }
 
     function updateSlideNumber() {
-      document.getElementById("slide-number").innerText =
-        `Slide ${currentIndex + 1} of ${totalSlides}`;
+      document.getElementById("slide-number").innerText = `Slide ${currentIndex + 1} of ${totalSlides}`;
     }
-  showSlide(0);
-    // Data for each tab
-const tabData = [
-  {
-    title: "Toyota Music Factory",
-    image: "Toyota_Music_Factory.webp",
-    description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
-    link: "https://www.toyotamusicfactory.com"
-  },
-    {
-    title: "Toyota Music Factory",
-    image: "Toyota_Music_Factory.webp",
-    description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
-    link: "https://www.toyotamusicfactory.com"
-  },
-    {
-    title: "Toyota Music Factory",
-    image: "Toyota_Music_Factory.webp",
-    description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
-    link: "https://www.toyotamusicfactory.com"
-  },
-    {
-    title: "Toyota Music Factory",
-    image: "Toyota_Music_Factory.webp",
-    description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
-    link: "https://www.toyotamusicfactory.com"
-  },
-    {
-    title: "Toyota Music Factory",
-    image: "Toyota_Music_Factory.webp",
-    description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
-    link: "https://www.toyotamusicfactory.com"
-  },
-    {
-    title: "Toyota Music Factory",
-    image: "Toyota_Music_Factory.webp",
-    description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
-    link: "https://www.toyotamusicfactory.com"
-  },
-    {
-    title: "Toyota Music Factory",
-    image: "Toyota_Music_Factory.webp",
-    description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
-    link: "https://www.toyotamusicfactory.com"
-  },
-    {
-    title: "Toyota Music Factory",
-    image: "Toyota_Music_Factory.webp",
-    description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
-    link: "https://www.toyotamusicfactory.com"
-  },
-    {
-    title: "Toyota Music Factory",
-    image: "Toyota_Music_Factory.webp",
-    description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
-    link: "https://www.toyotamusicfactory.com"
-  },
-    {
-    title: "Toyota Music Factory",
-    image: "Toyota_Music_Factory.webp",
-    description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
-    link: "https://www.toyotamusicfactory.com"
-  },
-    {
-    title: "Toyota Music Factory",
-    image: "Toyota_Music_Factory.webp",
-    description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
-    link: "https://www.toyotamusicfactory.com"
-  },
-  {
-    title: "Las Colinas Mustangs,
-    image: "mustangs.png",
-    description: "Otis finishes his journey by returning back to his place at the Las Colinas Mustangs. The Las Colinas Mustangs statue depicts nine bronze mustangs which represent Irving's natural and untamed past. Note: Otis is not a part of the real Las Colinas Mustangs Statue.",
-    link: "https://www.irvingarchivesandmuseum.com/mustangs-of-las-colinas"
-  },
-];
 
-function showSlide(index) {
-  if (index >= totalSlides) index = 0;
-  if (index < 0) index = totalSlides - 1;
-  currentIndex = index;
-  slides.style.transform = `translateX(-${index * 100}%)`;
-  updateSlideNumber();
-  updateTabInfo(index); 
-}
+    function updateTabInfo(index) {
+      const data = tabData[index] || { title: "Unknown", description: "", image: "", link: "#" };
+      document.getElementById("location-title").innerText = data.title;
+      const img = document.getElementById("location-image");
+      if(data.image) { img.src = data.image; img.style.display = "block"; } 
+      else { img.style.display = "none"; }
+      document.getElementById("location-description").innerText = data.description;
+      const link = document.getElementById("location-link");
+      if(data.link && data.link !== "#") { link.href = data.link; link.style.display = "block"; link.innerText = "Visit Website"; } 
+      else { link.style.display = "none"; }
+    }
 
-function updateTabInfo(index) {
-  const data = tabData[index];
-  if (!data) return; // If tabData not defined for this slide
-  const img = document.getElementById("location-image");
-  document.getElementById("location-title").innerText = data.title;
-  img.src = data.image;
-  img.style.display = "block";
-  document.getElementById("location-description").innerText = data.description;
-  const link = document.getElementById("location-link");
-  link.href = data.link;
-  link.style.display = "block";
-  link.innerText = "Visit Website";
-}
-
-
+    showSlide(0);
   </script>
 </body>
 </html>
