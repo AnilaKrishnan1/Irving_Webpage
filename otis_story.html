@@ -56,9 +56,60 @@
       line-height: 1.5;
       margin: 0;
     }
+     /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: teal;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .navbar .logo img {
+      height: 50px;
+    }
+
+    .navbar-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .navbar a:hover {
+      background-color: darkcyan;
+    }
+
+    .navbar a.active {
+      background-color: #004d4d;
+    }
+
   </style>
 </head>
 <body>
+   <!-- Navbar -->
+  <div class="navbar">
+    <a href="index.html" class="logo">
+      <img src="museum_logo.png"  alt="Irving History Logo">
+    </a>
+    <div class="navbar-links">
+      <a href="index.html" class="active">Map</a>
+      <a href="otis_story.html">Stories</a>
+      <a href="something.html">Something Else</a>
+    </div>
+  </div>
+
   <div class="choice-container">
     <a href="story1.html" class="choice-box">
       <h2>The Missing Piece</h2>
