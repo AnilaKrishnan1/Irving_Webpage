@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Story Choices</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Lexend', sans-serif;
+      background-color: #f0f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .choice-container {
+      display: flex;
+      gap: 50px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .choice-box {
+      background-color: teal;
+      color: white;
+      border-radius: 18px;
+      padding: 30px 40px;
+      width: 360px;
+      height: 230px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .choice-box:hover {
+      background-color: darkcyan;
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .choice-box h2 {
+      margin: 0 0 10px 0;
+      font-size: 24px;
+    }
+
+    .choice-box p {
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="choice-container">
+    <a href="story1.html" class="choice-box">
+      <h2>The Missing Piece</h2>
+      <p>Follow a character of your choice around Irving as they try to return a piece of art to where it belongs! Come on this fun adventure and learn about the murals of Irving. All scenery in Irving!</p>
+    </a>
+
+    <a href="story2.html" class="choice-box">
+      <h2>Otis' Musical Adventure</h2>
+      <p>Join Otis as he joins a music competition! It's a story of remarkable talent with a surprise ending. All scenery in Irving!</p>
+    </a>
+  </div>
+</body>
+</html>
