@@ -84,28 +84,27 @@
       bottom: 10%;
       left: 50%;
       transform: translateX(-50%);
-      width: 35%;   /* consistent size */
+      width: 15%;   /* consistent size */
       pointer-events: none;
       display: none;
     }
+    /* tweak for certain slides if needed */
+    .char1 { left: 70%; bottom: 15%; }
+    .char2 { left: 75%; bottom: 15%; }
+    .char3 { left: 73%; bottom: 15%; }
+    .char4 { left: 78%; bottom: 15%; }
+    .char5 { left: 38%; bottom: 15%; }
+    .char6 { left: 77%; bottom: 7%; }
+    .char7 { left: 63%; bottom: 10%; }
+    .char8 { left: 73%; bottom: 1%; }
+    .char9 { left: 60%; bottom: 1%; }
+    .char10 { left: 25%; bottom: 12%; }
+    .char11 { left: 28%; bottom: 15%; }
+    .char12 { left: 35%; bottom: 15%; }
+    .char13 { left: 75%; bottom: 15%; }
+    .char14 { left: 60%; bottom: 15%; }
+    .char15 { left: 60%; bottom: 15%; }
 
-    .char1 { left: 108%; bottom: 15%; width: 93%; }
-    .char2 { left: 110%; bottom: 15%; width: 93%; }
-    .char3 { left: 108%;  bottom: 15%; width: 100%; }
-    .char4 { left: 108%;  bottom: 15%; width: 100%; }
-    .char5 { left: 78%;  bottom: 15%; width: 100%; }
-    
-    .char6  { bottom: 20%; left: 55%; width: 80%; }
-    .char7  { bottom: 20%; left: 70%; width: 80%; }
-    .char8  { bottom: 22%; left: 60%; width: 80%; }
-    .char9  { bottom: 15%; left: 67%; width: 80%; }
-    .char10 { bottom: 15%; left: 60%; width: 80%; }
-    .char11 { bottom: 28%; left: 45%; width: 70%; }
-    .char12 { bottom: 30%; left: 48%; width: 70%; }
-    .char13 { bottom: 20%; left: 55%; width: 80%; }
-    .char14 { bottom: 20%; left: 58%; width: 80%; }
-    .char15 { bottom: 20%; left: 60%; width: 80%; }
-    .char16 { bottom: 20%; left: 60%; width: 80%; }
     /* Controls */
     .controls {
       margin-top: 15px;
@@ -138,7 +137,7 @@
     }
 
     /* Character picker slide */
-   .picker {
+    .picker {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -149,10 +148,12 @@
       font-size: 22px;
       font-weight: bold;
       margin-bottom: 15px;
+      justify-content: flex-start;
+      align-items: flex-start;
     }
     .picker img {
       width: 200px;
-      margin: 10px;
+      margin: 4px;
       cursor: pointer;
       border: 3px solid transparent;
       border-radius: 12px;
@@ -162,16 +163,6 @@
       border-color: teal;
       transform: scale(1.05);
     }
-    /* Highlight selected character */
-  .picker img.selected {
-    border-color: teal;
-    box-shadow: 0 0 15px rgba(0, 128, 128, 0.4);
-    transform: scale(1.1);
-}
-
-     /* Character picker */
-   
-
     /* Responsive navbar */
     @media (max-width: 600px) {
       .navbar {
@@ -207,7 +198,7 @@
       <!-- Slide 1: Character picker -->
       <div class="slide">
         <div class="picker">
-      <p>Choose your character:</p>
+          <p>Choose your character:</p>
           <div>
             <img src="boy1.png" alt="Character 1" onclick="swapCharacter('boy1.png')">
             <img src="boy2.png" alt="Character 2" onclick="swapCharacter('boy2.png')">
@@ -216,7 +207,7 @@
           </div>
         </div>
       </div>
-  
+
       <!-- Slide 2 onward: Story scenes -->
       <div class="slide">
         <img class="background" src="1.png" alt="Scene 1">
@@ -278,7 +269,6 @@
         <img class="background" src="15.png" alt="Scene 15">
         <img class="character char15" alt="Character">
       </div>
-
       <!-- continue for all scenes -->
     </div>
     <div id="slide-number">Slide 1</div>
@@ -313,25 +303,14 @@
         `Slide ${currentIndex + 1} of ${totalSlides}`;
     }
 
+    // Character picker (default = boy1)
+    function swapCharacter(imgSrc = 'boy1.png') {
+      document.querySelectorAll('.character').forEach(char => {
+        char.src = imgSrc;
+        char.style.display = "block";
+      });
+    }
 
-function swapCharacter(imgSrc) {
-  // Update all story characters
-  document.querySelectorAll('.character').forEach(char => {
-    char.src = imgSrc;
-    char.style.display = "block";
-  });
-
-  // Remove highlight from all character choices
-  document.querySelectorAll('.picker img').forEach(img => {
-    img.classList.remove('selected');
-  });
-
-  // Highlight the one that was clicked
-  const clickedImg = [...document.querySelectorAll('.picker img')].find(img => img.src.includes(imgSrc));
-  if (clickedImg) clickedImg.classList.add('selected');
-}
-
-    
     // Initialize with default character
     window.onload = function() {
       swapCharacter('boy1.png');
