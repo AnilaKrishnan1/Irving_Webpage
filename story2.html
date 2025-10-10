@@ -107,6 +107,51 @@
       border-radius: 12px;
       font-size: 14px;
     }
+/* For the information tabs */
+.side-tabs {
+  position: fixed;
+  top: 150px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.tab {
+  background-color: teal;
+  color: white;
+  padding: 12px 20px;
+  cursor: pointer;
+  margin: 5px 0;
+  border-radius: 8px 0 0 8px;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+
+.tab:hover {
+  background-color: darkcyan;
+}
+
+.tab-info {
+  position: fixed;
+  top: 150px;
+  right: 130px;
+  width: 300px;
+  background: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+.tab-info img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+.tab-info a {
+  display: block;
+  margin-top: 10px;
+  color: teal;
+  text-decoration: underline;
+}
 
   
   </style>
@@ -172,6 +217,30 @@
     <button onclick="prevSlide()">⟨ Prev</button>
     <button onclick="nextSlide()">Next ⟩</button>
   </div>
+<!-- Side tabs -->
+<div class="side-tabs">
+  <div class="tab" onclick="showTabInfo(0)">Scene 1</div>
+  <div class="tab" onclick="showTabInfo(0)">Scene 2</div>
+  <div class="tab" onclick="showTabInfo(0)">Scene 3</div>
+  <div class="tab" onclick="showTabInfo(0)">Scene 4</div>
+  <div class="tab" onclick="showTabInfo(0)">Scene 5</div>
+  <div class="tab" onclick="showTabInfo(0)">Scene 6</div>
+  <div class="tab" onclick="showTabInfo(0)">Scene 7</div>
+  <div class="tab" onclick="showTabInfo(0)">Scene 8</div>
+  <div class="tab" onclick="showTabInfo(0)">Scene 9</div>
+  <div class="tab" onclick="showTabInfo(0)">Scene 10</div>
+  <div class="tab" onclick="showTabInfo(0)">Scene 11</div>
+  <div class="tab" onclick="showTabInfo(1)">Scene 12</div>
+
+</div>
+
+<!-- Tab info box -->
+<div class="tab-info" id="tab-info">
+  <h3 id="location-title">Select a scene</h3>
+  <img id="location-image" src="" alt="Location Image" style="width:100%; border-radius:8px; margin-bottom:10px; display:none;">
+  <p id="location-description">Click a tab to see details about the location.</p>
+  <a id="location-link" href="#" target="_blank" style="display:none;">Visit Website</a>
+</div>
 
   <script>
     let currentIndex = 0;
@@ -196,6 +265,36 @@
         `Slide ${currentIndex + 1} of ${totalSlides}`;
     }
   showSlide(0);
+    // Data for each tab
+const tabData = [
+  {
+    title: "Toyota Music Factory",
+    image: "mural.jpg",
+    description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
+    link: "https://www.toyotamusicfactory.com"
+  },
+  {
+    title: "Las Colinas Mustangs,
+    image: "mustangs.png",
+    description: "Otis finishes his journey by returning back to his place at the Las Colinas Mustangs. The Las Colinas Mustangs statue depicts nine bronze mustangs which represent Irving's natural and untamed past. Note: Otis is not a part of the real Las Colinas Mustangs Statue.",
+    link: "https://www.irvingarchivesandmuseum.com/mustangs-of-las-colinas"
+  },
+];
+
+// Function to update info box
+function showTabInfo(index) {
+  const data = tabData[index];
+  document.getElementById("location-title").innerText = data.title;
+  const img = document.getElementById("location-image");
+  img.src = data.image;
+  img.style.display = "block";
+  document.getElementById("location-description").innerText = data.description;
+  const link = document.getElementById("location-link");
+  link.href = data.link;
+  link.style.display = "block";
+  link.innerText = "Visit Website";
+}
+
   </script>
 </body>
 </html>
