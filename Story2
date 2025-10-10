@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Story 2: Otis's Musical Adventure</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Lexend', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f9f9;
+      text-align: center;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: teal;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .navbar .logo img {
+      height: 50px;
+    }
+
+    .navbar-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .navbar a:hover {
+      background-color: darkcyan;
+    }
+
+    .navbar a.active {
+      background-color: #004d4d;
+    }
+
+    /* Carousel */
+    .carousel {
+      position: relative;
+      width: 900px;  /* bigger story view */
+      height: 600px;
+      margin: 30px auto;
+      border-radius: 15px;
+      overflow: hidden;
+      background: #f0f9f9;
+    }
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .slide {
+      position: relative;
+      min-width: 100%;
+      height: 100%;
+    }
+    .background {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Controls */
+    .controls {
+      margin-top: 15px;
+    }
+    .controls button {
+      padding: 10px 20px;
+      margin: 0 5px;
+      border: none;
+      background: teal;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .controls button:hover {
+      background: darkcyan;
+    }
+
+    /* Slide counter */
+    #slide-number {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 5px 12px;
+      border-radius: 12px;
+      font-size: 14px;
+    }
+
+  
+  </style>
+</head>
+<body>
+    <!-- Navbar -->
+  <div class="navbar">
+    <a href="index.html" class="logo">
+      <img src="museum_logo.png"  alt="Irving History Logo">
+    </a>
+    <div class="navbar-links">
+      <a href="index.html" class="active">Map</a>
+      <a href="otis_story.html">Stories</a>
+      <a href="something.html">Something Else</a>
+    </div>
+  </div>
+
+  <!-- Carousel -->
+  <div class="carousel">
+ 
+
+      <!-- Slide 2 onward: Story scenes -->
+      <div class="slide">
+        <img class="background" src="Story2_1.png" alt="Scene 1">
+      </div>
+      <div class="slide">
+        <img class="background" src="Story2_2.png"" alt="Scene 2">
+      </div>
+      <div class="slide">
+        <img class="background" src="Story2_3.png"" alt="Scene 3">
+      </div>
+      <div class="slide">
+        <img class="background" src="Story2_4.png"" alt="Scene 4">
+      </div>
+        <div class="slide">
+        <img class="background" src="Story2_5.png" alt="Scene 5">
+      </div>
+      <div class="slide">
+        <img class="background" src="Story2_6.png"" alt="Scene 6">
+      </div>
+      <div class="slide">
+        <img class="background" src="Story2_7.png"" alt="Scene 7">
+      </div>
+      <div class="slide">
+        <img class="background" src="Story2_8.png"" alt="Scene 8">
+      </div>
+      <div class="slide">
+        <img class="background" src="Story2_9.png"" alt="Scene 9">
+      </div>
+
+  <!-- Navigation buttons -->
+  <div class="controls">
+    <button onclick="prevSlide()">⟨ Prev</button>
+    <button onclick="nextSlide()">Next ⟩</button>
+  </div>
+
+  <script>
+    let currentIndex = 0;
+    const slides = document.querySelector('.slides');
+    const slideElements = document.querySelectorAll('.slide');
+    const totalSlides = slideElements.length;
+
+    // Show slide
+    function showSlide(index) {
+      if (index >= totalSlides) index = 0;
+      if (index < 0) index = totalSlides - 1;
+      currentIndex = index;
+      slides.style.transform = `translateX(-${index * 100}%)`;
+      updateSlideNumber();
+    }
+
+    function nextSlide() { showSlide(currentIndex + 1); }
+    function prevSlide() { showSlide(currentIndex - 1); }
+
+    function updateSlideNumber() {
+      document.getElementById("slide-number").innerText =
+        `Slide ${currentIndex + 1} of ${totalSlides}`;
+    }
+
+  </script>
+</body>
+</html>
