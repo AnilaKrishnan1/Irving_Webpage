@@ -220,25 +220,24 @@
 <!-- Side tabs -->
 <div class="side-tabs">
   <div class="tab" onclick="showTabInfo(0)">Scene 1</div>
-  <div class="tab" onclick="showTabInfo(0)">Scene 2</div>
-  <div class="tab" onclick="showTabInfo(0)">Scene 3</div>
-  <div class="tab" onclick="showTabInfo(0)">Scene 4</div>
-  <div class="tab" onclick="showTabInfo(0)">Scene 5</div>
-  <div class="tab" onclick="showTabInfo(0)">Scene 6</div>
-  <div class="tab" onclick="showTabInfo(0)">Scene 7</div>
-  <div class="tab" onclick="showTabInfo(0)">Scene 8</div>
-  <div class="tab" onclick="showTabInfo(0)">Scene 9</div>
-  <div class="tab" onclick="showTabInfo(0)">Scene 10</div>
-  <div class="tab" onclick="showTabInfo(0)">Scene 11</div>
-  <div class="tab" onclick="showTabInfo(1)">Scene 12</div>
+  <div class="tab" onclick="showTabInfo(1)">Scene 2</div>
+  <div class="tab" onclick="showTabInfo(2)">Scene 3</div>
+  <div class="tab" onclick="showTabInfo(3)">Scene 4</div>
+  <div class="tab" onclick="showTabInfo(4)">Scene 5</div>
+  <div class="tab" onclick="showTabInfo(5)">Scene 6</div>
+  <div class="tab" onclick="showTabInfo(6)">Scene 7</div>
+  <div class="tab" onclick="showTabInfo(7)">Scene 8</div>
+  <div class="tab" onclick="showTabInfo(8)">Scene 9</div>
+  <div class="tab" onclick="showTabInfo(9)">Scene 10</div>
+  <div class="tab" onclick="showTabInfo(10)">Scene 11</div>
+  <div class="tab" onclick="showTabInfo(11)">Scene 12</div>
 
 </div>
-
-<!-- Tab info box -->
+       <!-- Tab info box -->
 <div class="tab-info" id="tab-info">
   <h3 id="location-title">Select a scene</h3>
   <img id="location-image" src="" alt="Location Image" style="width:100%; border-radius:8px; margin-bottom:10px; display:none;">
-  <p id="location-description">Click a tab to see details about the location.</p>
+  <p id="location-description">Click next to see details about the location.</p>
   <a id="location-link" href="#" target="_blank" style="display:none;">Visit Website</a>
 </div>
 
@@ -269,7 +268,67 @@
 const tabData = [
   {
     title: "Toyota Music Factory",
-    image: "mural.jpg",
+    image: "Toyota_Music_Factory.webp",
+    description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
+    link: "https://www.toyotamusicfactory.com"
+  },
+    {
+    title: "Toyota Music Factory",
+    image: "Toyota_Music_Factory.webp",
+    description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
+    link: "https://www.toyotamusicfactory.com"
+  },
+    {
+    title: "Toyota Music Factory",
+    image: "Toyota_Music_Factory.webp",
+    description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
+    link: "https://www.toyotamusicfactory.com"
+  },
+    {
+    title: "Toyota Music Factory",
+    image: "Toyota_Music_Factory.webp",
+    description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
+    link: "https://www.toyotamusicfactory.com"
+  },
+    {
+    title: "Toyota Music Factory",
+    image: "Toyota_Music_Factory.webp",
+    description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
+    link: "https://www.toyotamusicfactory.com"
+  },
+    {
+    title: "Toyota Music Factory",
+    image: "Toyota_Music_Factory.webp",
+    description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
+    link: "https://www.toyotamusicfactory.com"
+  },
+    {
+    title: "Toyota Music Factory",
+    image: "Toyota_Music_Factory.webp",
+    description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
+    link: "https://www.toyotamusicfactory.com"
+  },
+    {
+    title: "Toyota Music Factory",
+    image: "Toyota_Music_Factory.webp",
+    description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
+    link: "https://www.toyotamusicfactory.com"
+  },
+    {
+    title: "Toyota Music Factory",
+    image: "Toyota_Music_Factory.webp",
+    description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
+    link: "https://www.toyotamusicfactory.com"
+  },
+    {
+    title: "Toyota Music Factory",
+    image: "Toyota_Music_Factory.webp",
+    description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
+    link: "https://www.toyotamusicfactory.com"
+  },
+    {
+    title: "Toyota Music Factory",
+    image: "Toyota_Music_Factory.webp",
     description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.",
     link: "https://www.toyotamusicfactory.com"
   },
@@ -287,7 +346,7 @@ function showSlide(index) {
   currentIndex = index;
   slides.style.transform = `translateX(-${index * 100}%)`;
   updateSlideNumber();
-  updateTabInfo(index); // 
+  updateTabInfo(index); 
 }
 
 function updateTabInfo(index) {
