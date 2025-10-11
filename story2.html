@@ -15,6 +15,10 @@
   .navbar a { color:white; text-decoration:none; font-weight:bold; padding:8px 12px; border-radius:5px; transition:background-color 0.3s; }
   .navbar a:hover { background-color:darkcyan; }
   .navbar a.active { background-color:#004d4d; }
+  .navbar a.active {
+    background: white;
+    color: teal;
+  }
 
   /* Carousel */
   .carousel { position:relative; width:900px; height:600px; margin:30px auto; border-radius:15px; overflow:hidden; background:#f0f9f9; }
@@ -137,6 +141,20 @@ function toggleInfo() {
     popup.style.display = 'block';
   }
 }
+  // Close info popup when clicking outside
+  document.addEventListener('click', function(event) {
+    const popup = document.getElementById('info-popup');
+    const tab = document.getElementById('side-tab');
+  
+    // If popup is open and the click is NOT inside the popup or the tab
+    if (
+      popup.style.display === 'block' &&
+      !popup.contains(event.target) &&
+      !tab.contains(event.target)
+    ) {
+      popup.style.display = 'none';
+    }
+  });
 
 function hideInfo() {
   document.getElementById('info-popup').style.display = 'none';
