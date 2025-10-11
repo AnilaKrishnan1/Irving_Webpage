@@ -330,104 +330,103 @@
     <a id="info-link" href="#" target="_blank">Open Location</a>
   </div>
   <script>
+    <script>
     let currentIndex = 0;
     const slides = document.querySelector('.slides');
     const slideElements = document.querySelectorAll('.slide');
     const totalSlides = slideElements.length;
-
-  function showSlide(index) {
-    if (index >= totalSlides) index = 0;
-    if (index < 0) index = totalSlides - 1;
-    currentIndex = index;
-    slides.style.transform = `translateX(-${index * 100}%)`;
-    updateSlideNumber();
-    updateTab();
-  }
-
-
+    
+    // Tab data (kept exactly as your original)
+    const tabData = [
+      { title: "Fritz Park", image: "FritzPark.jpeg", description: "Our characters start their journey at Fritz Park. This beautiful green park is great for outdoor activities, with a path for jogging, and facilties for basketball, baseball, and golf.", link: "https://maps.app.goo.gl/pE6Vigf3v23k8n7c7" },
+      { title: "Fritz Park", image: "FritzPark.jpeg", description: "Our characters start their journey at Fritz Park. This beautiful green park is great for outdoor activities, with a path for jogging, and facilties for basketball, baseball, and golf.", link: "https://maps.app.goo.gl/pE6Vigf3v23k8n7c7" },
+      { title: "Fritz Park", image: "FritzPark.jpeg", description: "Our characters start their journey at Fritz Park. This beautiful green park is great for outdoor activities, with a path for jogging, and facilties for basketball, baseball, and golf.", link: "https://maps.app.goo.gl/pE6Vigf3v23k8n7c7"},
+      { title: "Fritz Park", image: "FritzPark.jpeg", description: "Our characters start their journey at Fritz Park. This beautiful green park is great for outdoor activities, with a path for jogging, and facilties for basketball, baseball, and golf.", link: "https://maps.app.goo.gl/pE6Vigf3v23k8n7c7"},
+      { title: "Main Street", image: "MainSt.jpeg", description: "The characters find themselves on Main st. Right in the middle of downtown Irving, Main street is home to many shops and attractions.", link: "https://maps.app.goo.gl/JCEKmfUZGhwMUsk19"},
+      { title: "Main Street", image: "MainSt.jpeg", description: "The characters find themselves on Main st. Right in the middle of downtown Irving, Main street is home to many shops and attractions.", link: "https://maps.app.goo.gl/JCEKmfUZGhwMUsk19"},
+      { title: "Main Street", image: "MainStMural.jpeg", description: "The characters are at the Main Street Mural. This mural is in a parking lot near Heritage Park.", link: "https://maps.app.goo.gl/emHhw6qo744ud4Tg8"},
+      { title: "Main Street", image: "MainStMural.jpeg", description: "The characters are at the Main Street Mural. This mural is in a parking lot near Heritage Park.", link: "https://maps.app.goo.gl/emHhw6qo744ud4Tg8"},
+      { title: "Western Mural", image: "WesternMural.png", description: "The characters try matching the piece they found to the Western Mural. The Western Mural is outside the Southern Junction, where there is dinner, bands and dancing.", link: "https://maps.app.goo.gl/PceWQKpwFHYws67g8"},
+      { title: "Western Mural", image: "WesternMural.png", description: "The characters try matching the piece they found to the Western Mural. The Western Mural is outside the Southern Junction, where there is dinner, bands and dancing.", link: "https://maps.app.goo.gl/PceWQKpwFHYws67g8"},
+      { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural. This mural is called 'Timeless Irving' and shows Irving's history and landmarks.", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9"},
+      { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural. This mural is called 'Timeless Irving' and shows Irving's history and landmarks.", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9" },
+      { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural. This mural is called 'Timeless Irving' and shows Irving's history and landmarks.", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9"},
+      { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural. This mural is called 'Timeless Irving' and shows Irving's history and landmarks.", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9"},
+      { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural. This mural is called 'Timeless Irving' and shows Irving's history and landmarks.", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9"},
+      { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural. This mural is called 'Timeless Irving' and shows Irving's history and landmarks.", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9"},
+    ];
+    
+    // Carousel functions
+    function showSlide(index) {
+      if (index >= totalSlides) index = 0;
+      if (index < 0) index = totalSlides - 1;
+      currentIndex = index;
+      slides.style.transform = `translateX(-${index * 100}%)`;
+      updateSlideNumber();
+      updateTab();
+    }
+    
     function nextSlide() { showSlide(currentIndex + 1); }
     function prevSlide() { showSlide(currentIndex - 1); }
-
+    
     function updateSlideNumber() {
       document.getElementById("slide-number").innerText =
         `Slide ${currentIndex + 1} of ${totalSlides}`;
     }
-
-    // Character picker (default = boy1)
+    
+    // Character picker
     function swapCharacter(imgSrc = 'boy1.png') {
       document.querySelectorAll('.character').forEach(char => {
         char.src = imgSrc;
         char.style.display = "block";
       });
     }
-    //Info tab data
-  const tabData = [
-    { title: "Fritz Park", image: "FritzPark.jpeg", description: "Our characters start their journey at Fritz Park. This beautiful green park is great for outdoor activities, with a path for jogging, and facilties for basketball, baseball, and golf.", link: "https://maps.app.goo.gl/pE6Vigf3v23k8n7c7" },
-    { title: "Fritz Park", image: "FritzPark.jpeg", description: "Our characters start their journey at Fritz Park. This beautiful green park is great for outdoor activities, with a path for jogging, and facilties for basketball, baseball, and golf.", link: "https://maps.app.goo.gl/pE6Vigf3v23k8n7c7" },
-    { title: "Fritz Park", image: "FritzPark.jpeg", description: "Our characters start their journey at Fritz Park. This beautiful green park is great for outdoor activities, with a path for jogging, and facilties for basketball, baseball, and golf.", link: "https://maps.app.goo.gl/pE6Vigf3v23k8n7c7"},
-    { title: "Fritz Park", image: "FritzPark.jpeg", description: "Our characters start their journey at Fritz Park. This beautiful green park is great for outdoor activities, with a path for jogging, and facilties for basketball, baseball, and golf.", link: "https://maps.app.goo.gl/pE6Vigf3v23k8n7c7"},
-    { title: "Main Street", image: "MainSt.jpeg", description: "The characters find themselves on Main st. Right in the middle of downtown Irving, Main street is home to many shops and attractions.", link: "https://maps.app.goo.gl/JCEKmfUZGhwMUsk19"},
-    { title: "Main Street", image: "MainSt.jpeg", description: "The characters find themselves on Main st. Right in the middle of downtown Irving, Main street is home to many shops and attractions.", link: "https://maps.app.goo.gl/JCEKmfUZGhwMUsk19"},
-    { title: "Main Street", image: "MainStMural.jpeg", description: "The characters are at the Main Street Mural. This mural is in a parking lot near Heritage Park.", link: "https://maps.app.goo.gl/emHhw6qo744ud4Tg8"},
-    { title: "Main Street", image: "MainStMural.jpeg", description: "The characters are at the Main Street Mural. This mural is in a parking lot near Heritage Park.", link: "https://maps.app.goo.gl/emHhw6qo744ud4Tg8"},
-    { title: "Western Mural", image: "WesternMural.png", description: "The characters try matching the piece they found to the Western Mural. The Western Mural is outside the Southern Junction, where there is dinner, bands and dancing.", link: "https://maps.app.goo.gl/PceWQKpwFHYws67g8"},
-    { title: "Western Mural", image: "WesternMural.png", description: "The characters try matching the piece they found to the Western Mural. The Western Mural is outside the Southern Junction, where there is dinner, bands and dancing.", link: "https://maps.app.goo.gl/PceWQKpwFHYws67g8"},
-    { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural. This mural is called 'Timeless Irving' and shows Irving's history and landmarks.", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9"},
-    { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural. This mural is called 'Timeless Irving' and shows Irving's history and landmarks.", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9" },
-    { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural. This mural is called 'Timeless Irving' and shows Irving's history and landmarks.", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9"},
-    { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural. This mural is called 'Timeless Irving' and shows Irving's history and landmarks.", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9"},
-    { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural. This mural is called 'Timeless Irving' and shows Irving's history and landmarks.", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9"},
-    { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural. This mural is called 'Timeless Irving' and shows Irving's history and landmarks.", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9"},
-  ];
-  function updateTab() {
-    const tab = document.getElementById('side-tab');
-    const data = tabData[currentIndex];
-    tab.innerText = data.title;
-      // Hide the tab and popup only for the first slide
-  if (currentIndex === 0) {
-    tab.style.display = 'none';
-    popup.style.display = 'none';
-  } else {
-    tab.style.display = 'block';
-    const data = tabData[currentIndex];
-    tab.innerText = data.title;
-  }
-  }
-  
-function toggleInfo() {
-    const popup = document.getElementById('info-popup'); 
-    if (popup.style.display === 'block') {
+    
+    // Side tab
+    function updateTab() {
+      const tab = document.getElementById('side-tab');
+      const popup = document.getElementById('info-popup');
+    
+      if (currentIndex === 0) {
+        tab.style.display = 'none';
         popup.style.display = 'none';
-    } else {
+      } else {
+        tab.style.display = 'block';
+        tab.innerText = tabData[currentIndex].title;
+      }
+    }
+    
+    // Info popup
+    function toggleInfo() {
+      const popup = document.getElementById('info-popup');
+      if (popup.style.display === 'block') {
+        popup.style.display = 'none';
+      } else {
         const data = tabData[currentIndex];
         document.getElementById('info-title').innerText = data.title;
         document.getElementById('info-img').src = data.image;
         document.getElementById('info-desc').innerText = data.description;
         document.getElementById('info-link').href = data.link;
         popup.style.display = 'block';
+      }
     }
-}
-
-  
-  function hideInfo() {
-    document.getElementById('info-popup').style.display = 'none';
-  }
-    // Close info popup when clicking outside
-  document.addEventListener('click', function(event) {
+    
+    // Close popup if clicking outside
+    document.addEventListener('click', function(event) {
       const popup = document.getElementById('info-popup');
       const tab = document.getElementById('side-tab');
       if (!popup.contains(event.target) && !tab.contains(event.target)) {
-          popup.style.display = 'none';
+        popup.style.display = 'none';
       }
-  });
-
-
-
-    // Initialize with default character
+    });
+    
+    // Initialize on page load
     window.onload = function() {
       swapCharacter('boy1.png');
       showSlide(0);
     }
+</script>
+
   </script>
 </body>
 </html>
