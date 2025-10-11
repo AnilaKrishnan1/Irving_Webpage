@@ -20,43 +20,44 @@ h1 {
    NAVBAR
    ========================= */
 /* Navbar */
-.navbar {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  background-color: teal;
-  padding: 1rem;
-  font-size: 1rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+  /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: teal;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
 
-/* Navbar links */
-.navbar a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  position: relative;
-  padding: 0.5rem 0;
-  transition: color 0.3s ease;
-}
+    .navbar .logo img {
+      height: 50px;
+    }
 
-/* Hover underline animation */
-.navbar a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0%;
-  height: 2px;
-  background: white;
-  transition: width 0.3s ease;
-}
+    .navbar-links {
+      display: flex;
+      gap: 15px;
+    }
 
-.navbar a:hover::after {
-  width: 100%;
-}
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .navbar a:hover {
+      background-color: darkcyan;
+    }
+
+    .navbar a.active {
+      background-color: #004d4d;
+    }
 
 /* Active page */
 .navbar a.active {
@@ -132,20 +133,27 @@ h1 {
 /* =========================
    FOOTER
    ========================= */
-footer {
-  background-color: #f2f2f2;
-  padding: 15px 0;
-  margin-top: 30px;
-  font-size: 0.9em;
-  color: #555;
-}
+ /* Footer */
+    footer {
+      background-color: teal;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      margin-top: 40px;
+    }
 
-footer a {
-  color: teal;
-  text-decoration: none;
-  transition: text-decoration 0.2s ease;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
+    /* Responsive navbar */
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .navbar-links {
+        flex-direction: column;
+        width: 100%;
+      }
+      .navbar a {
+        text-align: center;
+        width: 100%;
+      }
+    }
