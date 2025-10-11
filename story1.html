@@ -9,22 +9,22 @@
   body { font-family: 'Lexend', sans-serif; margin:0; padding:0; background:#f0f9f9; text-align:center; }
 
   /* Navbar */
-  .navbar { display:flex; justify-content:space-between; align-items:center; background:teal; padding:10px 20px; position:sticky; top:0; z-index:1000; box-shadow:0 2px 5px rgba(0,0,0,0.2);}
+  .navbar { display:flex; justify-content:space-between; align-items:center; background-color:teal; padding:10px 20px; position:sticky; top:0; z-index:1000; box-shadow:0 2px 5px rgba(0,0,0,0.2);}
   .navbar .logo img { height:50px; }
   .navbar-links { display:flex; gap:15px; }
   .navbar a { color:white; text-decoration:none; font-weight:bold; padding:8px 12px; border-radius:5px; transition:background-color 0.3s; }
   .navbar a:hover { background-color:darkcyan; }
-  .navbar a.active { background-color:white; color:teal; }
+  .navbar a.active { background-color:#004d4d; }
 
   /* Carousel */
   .carousel { position:relative; width:900px; height:600px; margin:30px auto; border-radius:15px; overflow:hidden; background:#f0f9f9; }
   .slides { display:flex; transition:transform 0.5s ease-in-out; }
-  .slide { min-width:100%; height:100%; position:relative; }
+  .slide { position:relative; min-width:100%; height:100%; }
   .background { width:100%; height:100%; object-fit:cover; }
 
   /* Characters */
   .character { position:absolute; bottom:10%; left:50%; transform:translateX(-50%); width:15%; pointer-events:none; display:none; }
-  .char1 { left:70%; bottom:15%; } 
+  .char1 { left:70%; bottom:15%; }
   .char2 { left:75%; bottom:15%; }
   .char3 { left:73%; bottom:15%; }
   .char4 { left:78%; bottom:15%; }
@@ -43,17 +43,22 @@
   /* Controls */
   .controls { margin-top:15px; }
   .controls button { padding:10px 20px; margin:0 5px; border:none; background:teal; color:white; font-size:16px; font-weight:bold; border-radius:8px; cursor:pointer; }
-  .controls button:hover { background-color:darkcyan; }
+  .controls button:hover { background:darkcyan; }
 
   /* Slide counter */
   #slide-number { position:absolute; bottom:10px; right:10px; background:rgba(0,0,0,0.6); color:white; padding:5px 12px; border-radius:12px; font-size:14px; }
 
-  /* Side Tab */
+  /* Character picker slide */
+  .picker { display:flex; flex-direction:column; justify-content:center; align-items:center; height:100%; }
+  .picker p { font-size:22px; font-weight:bold; margin-bottom:15px; justify-content:flex-start; align-items:flex-start; }
+  .picker img { width:200px; margin:4px; cursor:pointer; border:3px solid transparent; border-radius:12px; transition:0.3s; }
+  .picker img:hover { border-color:teal; transform:scale(1.05); }
+
+  /* Side tab */
+  .side-tab { position:fixed; top:150px; right:0; background:teal; color:white; padding:12px 20px; cursor:pointer; border-radius:8px 0 0 8px; z-index:1000; transition:background 0.3s; }
   .side-tab:hover { background-color:darkcyan; }
-  .side-tab { position:fixed; top:150px; right:0; background:teal; color:white; padding:12px 20px; cursor:pointer; border-radius:8px 0 0 8px; text-align:center; z-index:2000; transition: background 0.3s; }
 
-
-  /* Info Popup */
+  /* Info popup */
   .info-popup { display:none; position:fixed; top:150px; right:130px; width:300px; background:white; padding:15px 20px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.2); text-align:left; z-index:1000; }
   .info-popup img { max-width:100%; border-radius:8px; margin-bottom:10px; }
   .info-popup a { display:block; margin-top:10px; color:teal; text-decoration:underline; }
@@ -73,34 +78,35 @@
 <!-- Carousel -->
 <div class="carousel">
   <div class="slides">
+    <!-- Slide 1: Character picker -->
     <div class="slide">
-        <!-- Character picker slide -->
-  <div class="slide">
-    <div class="picker" style="display:flex; justify-content:center; gap:20px; align-items:center; height:100%;">
-      <p style="position:absolute; top:10px; width:100%; text-align:center; font-weight:bold;">Choose your character:</p>
-      <img src="boy1.png" alt="Boy 1" onclick="swapCharacter('boy1.png')" style="width:100px; cursor:pointer;">
-      <img src="boy2.png" alt="Boy 2" onclick="swapCharacter('boy2.png')" style="width:100px; cursor:pointer;">
-      <img src="girl1.png" alt="Girl 1" onclick="swapCharacter('girl1.png')" style="width:100px; cursor:pointer;">
-      <img src="girl2.png" alt="Girl 2" onclick="swapCharacter('girl2.png')" style="width:100px; cursor:pointer;">
+      <div class="picker">
+        <p>Choose your character:</p>
+        <div>
+          <img src="boy1.png" alt="Character 1" onclick="swapCharacter('boy1.png')">
+          <img src="boy2.png" alt="Character 2" onclick="swapCharacter('boy2.png')">
+          <img src="girl1.png" alt="Character 3" onclick="swapCharacter('girl1.png')">
+          <img src="girl2.png" alt="Character 4" onclick="swapCharacter('girl2.png')">
+        </div>
+      </div>
     </div>
-  </div>
 
     <!-- Story slides -->
-    <div class="slide"><img class="background" src="1.png"><img class="character char1"></div>
-    <div class="slide"><img class="background" src="2.png"><img class="character char2"></div>
-    <div class="slide"><img class="background" src="3.png"><img class="character char3"></div>
-    <div class="slide"><img class="background" src="4.png"><img class="character char4"></div>
-    <div class="slide"><img class="background" src="5.png"><img class="character char5"></div>
-    <div class="slide"><img class="background" src="6.png"><img class="character char6"></div>
-    <div class="slide"><img class="background" src="7.png"><img class="character char7"></div>
-    <div class="slide"><img class="background" src="8.png"><img class="character char8"></div>
-    <div class="slide"><img class="background" src="9.png"><img class="character char9"></div>
-    <div class="slide"><img class="background" src="10.png"><img class="character char10"></div>
-    <div class="slide"><img class="background" src="11.png"><img class="character char11"></div>
-    <div class="slide"><img class="background" src="12.png"><img class="character char12"></div>
-    <div class="slide"><img class="background" src="13.png"><img class="character char13"></div>
-    <div class="slide"><img class="background" src="14.png"><img class="character char14"></div>
-    <div class="slide"><img class="background" src="15.png"><img class="character char15"></div>
+    <div class="slide"><img class="background" src="1.png" alt="Scene 1"><img class="character char1" alt="Character"></div>
+    <div class="slide"><img class="background" src="2.png" alt="Scene 2"><img class="character char2" alt="Character"></div>
+    <div class="slide"><img class="background" src="3.png" alt="Scene 3"><img class="character char3" alt="Character"></div>
+    <div class="slide"><img class="background" src="4.png" alt="Scene 4"><img class="character char4" alt="Character"></div>
+    <div class="slide"><img class="background" src="5.png" alt="Scene 5"><img class="character char5" alt="Character"></div>
+    <div class="slide"><img class="background" src="6.png" alt="Scene 6"><img class="character char6" alt="Character"></div>
+    <div class="slide"><img class="background" src="7.png" alt="Scene 7"><img class="character char7" alt="Character"></div>
+    <div class="slide"><img class="background" src="8.png" alt="Scene 8"><img class="character char8" alt="Character"></div>
+    <div class="slide"><img class="background" src="9.png" alt="Scene 9"><img class="character char9" alt="Character"></div>
+    <div class="slide"><img class="background" src="10.png" alt="Scene 10"><img class="character char10" alt="Character"></div>
+    <div class="slide"><img class="background" src="11.png" alt="Scene 11"><img class="character char11" alt="Character"></div>
+    <div class="slide"><img class="background" src="12.png" alt="Scene 12"><img class="character char12" alt="Character"></div>
+    <div class="slide"><img class="background" src="13.png" alt="Scene 13"><img class="character char13" alt="Character"></div>
+    <div class="slide"><img class="background" src="14.png" alt="Scene 14"><img class="character char14" alt="Character"></div>
+    <div class="slide"><img class="background" src="15.png" alt="Scene 15"><img class="character char15" alt="Character"></div>
   </div>
   <div id="slide-number">Slide 1 of 16</div>
 </div>
@@ -112,14 +118,14 @@
 </div>
 
 <!-- Side Tab -->
-<div class="side-tab" id="side-tab"></div>
+<div class="side-tab" id="side-tab" onclick="toggleInfo()">Scene Info</div>
 
 <!-- Info Popup -->
 <div class="info-popup" id="info-popup">
   <h3 id="info-title"></h3>
   <img id="info-img" src="" alt="">
   <p id="info-desc"></p>
-  <a id="info-link" href="#" target="_blank">Open Location</a>
+  <a id="info-link" href="#" target="_blank">Visit Website</a>
 </div>
 
 <script>
@@ -128,31 +134,33 @@ const slides = document.querySelector('.slides');
 const slideElements = document.querySelectorAll('.slide');
 const totalSlides = slideElements.length;
 
-const tabData = [
-  { title: "Fritz Park", image: "FritzPark.jpeg", description: "Our characters start their journey at Fritz Park...", link: "https://maps.app.goo.gl/pE6Vigf3v23k8n7c7" },
-  { title: "Fritz Park", image: "FritzPark.jpeg", description: "Our characters start their journey at Fritz Park...", link: "https://maps.app.goo.gl/pE6Vigf3v23k8n7c7" },
-  { title: "Fritz Park", image: "FritzPark.jpeg", description: "Our characters start their journey at Fritz Park...", link: "https://maps.app.goo.gl/pE6Vigf3v23k8n7c7" },
-  { title: "Fritz Park", image: "FritzPark.jpeg", description: "Our characters start their journey at Fritz Park...", link: "https://maps.app.goo.gl/pE6Vigf3v23k8n7c7" },
-  { title: "Main Street", image: "MainSt.jpeg", description: "The characters find themselves on Main Street...", link: "https://maps.app.goo.gl/JCEKmfUZGhwMUsk19" },
-  { title: "Main Street", image: "MainSt.jpeg", description: "The characters find themselves on Main Street...", link: "https://maps.app.goo.gl/JCEKmfUZGhwMUsk19" },
-  { title: "Main Street Mural", image: "MainStMural.jpeg", description: "The characters are at the Main Street Mural...", link: "https://maps.app.goo.gl/emHhw6qo744ud4Tg8" },
-  { title: "Main Street Mural", image: "MainStMural.jpeg", description: "The characters are at the Main Street Mural...", link: "https://maps.app.goo.gl/emHhw6qo744ud4Tg8" },
-  { title: "Western Mural", image: "WesternMural.png", description: "The characters try matching the piece they found...", link: "https://maps.app.goo.gl/PceWQKpwFHYws67g8" },
-  { title: "Western Mural", image: "WesternMural.png", description: "The characters try matching the piece they found...", link: "https://maps.app.goo.gl/PceWQKpwFHYws67g8" },
-  { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural...", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9" },
-  { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural...", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9" },
-  { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural...", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9" },
-  { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural...", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9" },
-  { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural...", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9" },
-  { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural...", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9" },
-];
+// Tab data per slide
+  const tabData = [
+    { title: "Fritz Park", image: "FritzPark.jpeg", description: "Our characters start their journey at Fritz Park. This beautiful green park is great for outdoor activities, with a path for jogging, and facilties for basketball, baseball, and golf.", link: "https://maps.app.goo.gl/pE6Vigf3v23k8n7c7" },
+    { title: "Fritz Park", image: "FritzPark.jpeg", description: "Our characters start their journey at Fritz Park. This beautiful green park is great for outdoor activities, with a path for jogging, and facilties for basketball, baseball, and golf.", link: "https://maps.app.goo.gl/pE6Vigf3v23k8n7c7" },
+    { title: "Fritz Park", image: "FritzPark.jpeg", description: "Our characters start their journey at Fritz Park. This beautiful green park is great for outdoor activities, with a path for jogging, and facilties for basketball, baseball, and golf.", link: "https://maps.app.goo.gl/pE6Vigf3v23k8n7c7"},
+    { title: "Fritz Park", image: "FritzPark.jpeg", description: "Our characters start their journey at Fritz Park. This beautiful green park is great for outdoor activities, with a path for jogging, and facilties for basketball, baseball, and golf.", link: "https://maps.app.goo.gl/pE6Vigf3v23k8n7c7"},
+    { title: "Main Street", image: "MainSt.jpeg", description: "The characters find themselves on Main st. Right in the middle of downtown Irving, Main street is home to many shops and attractions.", link: "https://maps.app.goo.gl/JCEKmfUZGhwMUsk19"},
+    { title: "Main Street", image: "MainSt.jpeg", description: "The characters find themselves on Main st. Right in the middle of downtown Irving, Main street is home to many shops and attractions.", link: "https://maps.app.goo.gl/JCEKmfUZGhwMUsk19"},
+    { title: "Main Street", image: "MainStMural.jpeg", description: "The characters are at the Main Street Mural. This mural is in a parking lot near Heritage Park.", link: "https://maps.app.goo.gl/emHhw6qo744ud4Tg8"},
+    { title: "Main Street", image: "MainStMural.jpeg", description: "The characters are at the Main Street Mural. This mural is in a parking lot near Heritage Park.", link: "https://maps.app.goo.gl/emHhw6qo744ud4Tg8"},
+    { title: "Western Mural", image: "WesternMural.png", description: "The characters try matching the piece they found to the Western Mural. The Western Mural is outside the Southern Junction, where there is dinner, bands and dancing.", link: "https://maps.app.goo.gl/PceWQKpwFHYws67g8"},
+    { title: "Western Mural", image: "WesternMural.png", description: "The characters try matching the piece they found to the Western Mural. The Western Mural is outside the Southern Junction, where there is dinner, bands and dancing.", link: "https://maps.app.goo.gl/PceWQKpwFHYws67g8"},
+    { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural. This mural is called 'Timeless Irving' and shows Irving's history and landmarks.", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9"},
+    { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural. This mural is called 'Timeless Irving' and shows Irving's history and landmarks.", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9" },
+    { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural. This mural is called 'Timeless Irving' and shows Irving's history and landmarks.", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9"},
+    { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural. This mural is called 'Timeless Irving' and shows Irving's history and landmarks.", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9"},
+    { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural. This mural is called 'Timeless Irving' and shows Irving's history and landmarks.", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9"},
+    { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural. This mural is called 'Timeless Irving' and shows Irving's history and landmarks.", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9"},
+  ];
 
+// Show slide
 function showSlide(index) {
-  if(index >= totalSlides) index = 0;
-  if(index < 0) index = totalSlides - 1;
-  currentIndex = index;
+  if(index>=totalSlides) index=0;
+  if(index<0) index=totalSlides-1;
+  currentIndex=index;
   slides.style.transform = `translateX(-${index*100}%)`;
-  document.getElementById('slide-number').innerText = `Slide ${currentIndex+1} of ${totalSlides}`;
+  updateSlideNumber();
   updateTab();
   hideInfo();
 }
@@ -160,48 +168,56 @@ function showSlide(index) {
 function nextSlide(){ showSlide(currentIndex+1); }
 function prevSlide(){ showSlide(currentIndex-1); }
 
-function swapCharacter(src='boy1.png'){
-  document.querySelectorAll('.character').forEach(c=>{c.src=src;c.style.display='block';});
+function updateSlideNumber(){
+  document.getElementById("slide-number").innerText = `Slide ${currentIndex+1} of ${totalSlides}`;
 }
 
+// Character picker (default = boy1)
+function swapCharacter(imgSrc='boy1.png'){
+  document.querySelectorAll('.character').forEach(char=>{
+    char.src=imgSrc;
+    char.style.display="block";
+  });
+}
+
+// Side tab
 function updateTab(){
-  const tab = document.getElementById('side-tab');
-  if(currentIndex === 0){ 
-    tab.style.display='none'; 
-  } else {
-    tab.style.display='block';
-    tab.innerText = tabData[currentIndex]?.title || '';
-    tab.style.pointerEvents = 'auto'; // ensure clickable
-  }
+  const tab=document.getElementById('side-tab');
+  if(currentIndex>0){ // hide tab on character picker slide
+    tab.innerText = tabData[currentIndex-1].title;
+    tab.style.display="block";
+  } else tab.style.display="none";
 }
-
 
 function toggleInfo(){
-  const popup = document.getElementById('info-popup');
-  if(popup.style.display==='block'){ popup.style.display='none'; }
-  else{
-    const data = tabData[currentIndex];
-    document.getElementById('info-title').innerText = data.title;
-    document.getElementById('info-img').src = data.image;
-    document.getElementById('info-desc').innerText = data.description;
-    document.getElementById('info-link').href = data.link;
+  const popup=document.getElementById('info-popup');
+  if(popup.style.display==='block') popup.style.display='none';
+  else {
+    const data=tabData[currentIndex-1];
+    document.getElementById('info-title').innerText=data.title;
+    document.getElementById('info-img').src=data.image;
+    document.getElementById('info-desc').innerText=data.description;
+    document.getElementById('info-link').href=data.link;
     popup.style.display='block';
   }
 }
 
-document.addEventListener('click', function(e){
-  const popup = document.getElementById('info-popup');
-  const tab = document.getElementById('side-tab');
-  if(popup.style.display==='block' && !popup.contains(e.target) && !tab.contains(e.target)){
+// Hide info popup when clicking outside
+document.addEventListener('click', function(event){
+  const popup=document.getElementById('info-popup');
+  const tab=document.getElementById('side-tab');
+  if(popup.style.display==='block' && !popup.contains(event.target) && !tab.contains(event.target)){
     popup.style.display='none';
   }
 });
 
+function hideInfo(){ document.getElementById('info-popup').style.display='none'; }
+
 // Initialize
-window.onload = function(){
+window.onload=function(){
   swapCharacter('boy1.png');
   showSlide(0);
-};
+}
 </script>
 
 </body>
