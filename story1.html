@@ -49,8 +49,9 @@
   #slide-number { position:absolute; bottom:10px; right:10px; background:rgba(0,0,0,0.6); color:white; padding:5px 12px; border-radius:12px; font-size:14px; }
 
   /* Side Tab */
-  .side-tab { position:fixed; top:150px; right:0; background:teal; color:white; padding:12px 20px; cursor:pointer; border-radius:8px 0 0 8px; text-align:center; z-index:1000; transition: background 0.3s;}
   .side-tab:hover { background-color:darkcyan; }
+  .side-tab { position:fixed; top:150px; right:0; background:teal; color:white; padding:12px 20px; cursor:pointer; border-radius:8px 0 0 8px; text-align:center; z-index:2000; transition: background 0.3s; }
+
 
   /* Info Popup */
   .info-popup { display:none; position:fixed; top:150px; right:130px; width:300px; background:white; padding:15px 20px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.2); text-align:left; z-index:1000; }
@@ -73,14 +74,17 @@
 <div class="carousel">
   <div class="slides">
     <div class="slide">
-      <div class="picker">
-        <p>Choose your character:</p>
-        <img src="boy1.png" alt="Boy 1" onclick="swapCharacter('boy1.png')">
-        <img src="boy2.png" alt="Boy 2" onclick="swapCharacter('boy2.png')">
-        <img src="girl1.png" alt="Girl 1" onclick="swapCharacter('girl1.png')">
-        <img src="girl2.png" alt="Girl 2" onclick="swapCharacter('girl2.png')">
-      </div>
+        <!-- Character picker slide -->
+  <div class="slide">
+    <div class="picker" style="display:flex; justify-content:center; gap:20px; align-items:center; height:100%;">
+      <p style="position:absolute; top:10px; width:100%; text-align:center; font-weight:bold;">Choose your character:</p>
+      <img src="boy1.png" alt="Boy 1" onclick="swapCharacter('boy1.png')" style="width:100px; cursor:pointer;">
+      <img src="boy2.png" alt="Boy 2" onclick="swapCharacter('boy2.png')" style="width:100px; cursor:pointer;">
+      <img src="girl1.png" alt="Girl 1" onclick="swapCharacter('girl1.png')" style="width:100px; cursor:pointer;">
+      <img src="girl2.png" alt="Girl 2" onclick="swapCharacter('girl2.png')" style="width:100px; cursor:pointer;">
     </div>
+  </div>
+
     <!-- Story slides -->
     <div class="slide"><img class="background" src="1.png"><img class="character char1"></div>
     <div class="slide"><img class="background" src="2.png"><img class="character char2"></div>
@@ -162,12 +166,15 @@ function swapCharacter(src='boy1.png'){
 
 function updateTab(){
   const tab = document.getElementById('side-tab');
-  if(currentIndex === 0){ tab.style.display='none'; }
-  else{
+  if(currentIndex === 0){ 
+    tab.style.display='none'; 
+  } else {
     tab.style.display='block';
     tab.innerText = tabData[currentIndex]?.title || '';
+    tab.style.pointerEvents = 'auto'; // ensure clickable
   }
 }
+
 
 function toggleInfo(){
   const popup = document.getElementById('info-popup');
