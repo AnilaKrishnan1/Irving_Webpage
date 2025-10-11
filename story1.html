@@ -313,6 +313,8 @@
     </div>
     <div id="slide-number">Slide 1</div>
   </div>
+  <!-- Side Tab -->
+  <div class="side-tab" id="side-tab" onclick="toggleInfo()"></div>
 
   <!-- Navigation buttons -->
   <div class="controls">
@@ -333,14 +335,15 @@
     const slideElements = document.querySelectorAll('.slide');
     const totalSlides = slideElements.length;
 
-    // Show slide
-    function showSlide(index) {
-      if (index >= totalSlides) index = 0;
-      if (index < 0) index = totalSlides - 1;
-      currentIndex = index;
-      slides.style.transform = `translateX(-${index * 100}%)`;
-      updateSlideNumber();
-    }
+  function showSlide(index) {
+    if (index >= totalSlides) index = 0;
+    if (index < 0) index = totalSlides - 1;
+    currentIndex = index;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+    updateSlideNumber();
+    updateTab();
+  }
+
 
     function nextSlide() { showSlide(currentIndex + 1); }
     function prevSlide() { showSlide(currentIndex - 1); }
@@ -413,15 +416,19 @@
     const popup = document.getElementById('info-popup');
     const tab = document.getElementById('side-tab');
   
-    // If popup is open and the click is NOT inside the popup or the tab
-    if (
-      popup.style.display === 'block' &&
-      !popup.contains(event.target) &&
-      !tab.contains(event.target)
-    ) {
+  function updateTab() {
+    const tab = document.getElementById('side-tab');
+    const popup = document.getElementById('info-popup'); // add this
+    if (currentIndex === 0) {
+      tab.style.display = 'none';
       popup.style.display = 'none';
+    } else {
+      tab.style.display = 'block';
+      const data = tabData[currentIndex];
+      tab.innerText = data.title;
     }
-  });
+}
+
 
     // Initialize with default character
     window.onload = function() {
