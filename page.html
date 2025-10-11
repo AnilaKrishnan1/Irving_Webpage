@@ -6,156 +6,39 @@
   <title>Irving Archives and Museum| Irving Landmarks</title>
   <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    /* Page-specific styles */
-    body {
-      font-family: 'Lexend', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      line-height: 1.6;
-    }
-
-    /* Navbar (same as main page) */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: teal;
-      padding: 10px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-
-    .navbar .logo img {
-      height: 50px;
-    }
-
-    .navbar-links {
-      display: flex;
-      gap: 15px;
-    }
-
-    .navbar a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 8px 12px;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-    }
-
-    .navbar a:hover {
-      background-color: darkcyan;
-    }
-
-    .navbar a.active {
-      background-color: #004d4d;
-    }
-
-    /* Hero section */
-    .landmark-header {
-      text-align: center;
-      padding: 40px 20px 20px;
-      background: linear-gradient(to bottom, #e0f7f7, #ffffff);
-      border-bottom: 4px solid teal;
-    }
-
-    .landmark-header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-
-    /* Landmark images */
-    .landmark-images {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 25px;
-      margin: 30px 0;
-    }
-
-    .landmark-images img {
-      max-width: 90%;
-      height: auto;
-      border: 4px solid #333;
-      border-radius: 10px;
-      box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
-    }
-
-
-    /* Back button */
-    .back-button {
-      text-align: center;
-      margin: 40px 0;
-    }
-
-    .back-button a.btn {
-      display: inline-block;
-      background-color: teal;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s;
-    }
-
-    .back-button a.btn:hover {
-      background-color: darkcyan;
-    }
-
-    /* Footer */
-    footer {
-      background-color: teal;
-      color: white;
-      text-align: center;
-      padding: 12px;
-      margin-top: 40px;
-    }
-  </style>
 </head>
 <body>
-
   <!-- Navbar -->
   <div class="navbar">
-    <a href="index.html" class="logo">
-      <img src="museum_logo.png" alt="Irving History Logo">
-    </a>
-    <div class="navbar-links">
-      <a href="index.html" class="active">Map</a>
-      <a href="otis_story.html">Stories</a>
-      <a href="something.html">Something Else</a>
-    </div>
+    <a href="index.html">Map</a>
+    <a href="otis_story.html">Stories</a>
   </div>
 
-  <!-- Hero / Landmark Title -->
-  <section class="landmark-header">
-    <h1>Irving Archives and Museum</h1>
-  </section>
-
-  <!-- Landmark Images -->
+  <!-- Content -->
   <div class="content">
-    <div class="landmark-images">
-      <img src="museum1.png" alt="Comic panel 1">
-      <img src="museum2.png" alt="Comic panel 2">
-      <img src="museum3.png" alt="Comic panel 3">
-      <!-- Add more comics as needed -->
-    </div>
+    <h1>Irving Archives and Museum</h1>
 
+    <!-- Landmark images -->
+    <div class="landmark-image">
+      <img src="museum1.png" alt="View of museum" width="80%">
+    </div>
+    <div class="landmark-image">
+      <img src="cmuseum2.png" alt="Another view of museum" width="80%">
+    </div>
+    <div class="landmark-image">
+      <img src="cmuseum3.png" alt="Another view of museum" width="80%">
+    </div>
     <!-- Back to Map button -->
     <div class="back-button">
-      <a href="index.html" class="btn">← Back to Map</a>
+      <a href="index.html">
+        <img src="backtomap.png" alt="Back to Map" width="200">
+      </a>
     </div>
   </div>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Irving History Project | Built by Anila</p>
+    <p>&copy; 2025 Irving History Project</p>
   </footer>
-
 </body>
 </html>
-
