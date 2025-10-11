@@ -177,6 +177,48 @@
         text-align: center;
         width: 100%;
       }
+      /* Single Side Tab */
+    .side-tab {
+      position:fixed; 
+      top:150px; 
+      right:0;
+      background:teal;
+      color:white;
+      padding:12px 20px;
+      cursor:pointer;
+      border-radius:8px 0 0 8px;
+      text-align:center;
+      z-index:1000;
+      transition: background 0.3s;
+    }
+    .side-tab:hover {
+      background-color:darkcyan;
+    }
+  
+    /* Info Popup */
+    .info-popup {
+      display:none;
+      position:fixed;
+      top:150px;
+      right:130px;
+      width:300px;
+      background:white;
+      padding:15px 20px;
+      border-radius:12px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.2);
+      text-align:left;
+      z-index:1000; }
+    .info-popup img {
+      max-width:100%;
+      border-radius:8px;
+      margin-bottom:10px; 
+    }
+    .info-popup a { 
+      display:block; 
+      margin-top:10px; 
+      color:teal; 
+      text-decoration:underline; 
+    }
   </style>
 </head>
 <body>
@@ -277,7 +319,14 @@
     <button onclick="prevSlide()">⟨ Prev</button>
     <button onclick="nextSlide()">Next ⟩</button>
   </div>
-
+  
+  <!-- Info Popup -->
+  <div class="info-popup" id="info-popup">
+    <h3 id="info-title"></h3>
+    <img id="info-img" src="" alt="">
+    <p id="info-desc"></p>
+    <a id="info-link" href="#" target="_blank">Visit Website</a>
+  </div>
   <script>
     let currentIndex = 0;
     const slides = document.querySelector('.slides');
@@ -308,6 +357,71 @@
         char.style.display = "block";
       });
     }
+    //Info tab data
+  const tabData = [
+    { title: "Fritz Park", image: "FritzPark.jpeg", description: "Our characters start their journey at Fritz Park. This beautiful green park is great for outdoor activities, with a path for jogging, and facilties for basketball, baseball, and golf.", link: "https://maps.app.goo.gl/pE6Vigf3v23k8n7c7" },
+    { title: "Fritz Park", image: "FritzPark.jpeg", description: "Our characters start their journey at Fritz Park. This beautiful green park is great for outdoor activities, with a path for jogging, and facilties for basketball, baseball, and golf.", link: "https://maps.app.goo.gl/pE6Vigf3v23k8n7c7 },
+    { title: "Fritz Park", image: "FritzPark.jpeg", description: "Our characters start their journey at Fritz Park. This beautiful green park is great for outdoor activities, with a path for jogging, and facilties for basketball, baseball, and golf.", link: "https://maps.app.goo.gl/pE6Vigf3v23k8n7c7"},
+    { title: "Fritz Park", image: "FritzPark.jpeg", description: "Our characters start their journey at Fritz Park. This beautiful green park is great for outdoor activities, with a path for jogging, and facilties for basketball, baseball, and golf.", link: "https://maps.app.goo.gl/pE6Vigf3v23k8n7c7"},
+    { title: "Main Street", image: "MainSt.jpeg", description: "The characters find themselves on Main st. Right in the middle of downtown Irving, Main street is home to many shops and attractions.", link: "https://maps.app.goo.gl/JCEKmfUZGhwMUsk19"},
+    { title: "Main Street", image: "MainSt.jpeg", description: "The characters find themselves on Main st. Right in the middle of downtown Irving, Main street is home to many shops and attractions.", link: "https://maps.app.goo.gl/JCEKmfUZGhwMUsk19"},
+    { title: "Main Street", image: "MainStMural.jpeg", description: "The characters are at the Main Street Mural. This mural is in a parking lot near Heritage Park.", link: "https://maps.app.goo.gl/emHhw6qo744ud4Tg8"},
+    { title: "Main Street", image: "MainStMural.jpeg", description: "The characters are at the Main Street Mural. This mural is in a parking lot near Heritage Park.", link: "https://maps.app.goo.gl/emHhw6qo744ud4Tg8"},
+    { title: "Western Mural", image: "WesternMural.png", description: "The characters try matching the piece they found to the Western Mural. The Western Mural is outside the Southern Junction, where there is dinner, bands and dancing.", link: "https://maps.app.goo.gl/PceWQKpwFHYws67g8"},
+    { title: "Western Mural", image: "WesternMural.png", description: "The characters try matching the piece they found to the Western Mural. The Western Mural is outside the Southern Junction, where there is dinner, bands and dancing.", link: "https://maps.app.goo.gl/PceWQKpwFHYws67g8"},
+    { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural. This mural is called 'Timeless Irving' and shows Irving's history and landmarks.", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9"},
+    { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural. This mural is called 'Timeless Irving' and shows Irving's history and landmarks.", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9" },
+    { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural. This mural is called 'Timeless Irving' and shows Irving's history and landmarks.", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9"},
+    { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural. This mural is called 'Timeless Irving' and shows Irving's history and landmarks.", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9"},
+    { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural. This mural is called 'Timeless Irving' and shows Irving's history and landmarks.", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9"},
+    { title: "Heritage District", image: "TimelessIrving.jpeg", description: "Finally, the characters reach the Heritage District Mural. This mural is called 'Timeless Irving' and shows Irving's history and landmarks.", link: "https://maps.app.goo.gl/B71UEjYBHzdg8Wjq9"},
+  ];
+  function updateTab() {
+    const tab = document.getElementById('side-tab');
+    const data = tabData[currentIndex];
+    tab.innerText = data.title;
+      // Hide the tab and popup only for the first slide
+  if (currentIndex === 0) {
+    tab.style.display = 'none';
+    popup.style.display = 'none';
+  } else {
+    tab.style.display = 'block';
+    const data = tabData[currentIndex];
+    tab.innerText = data.title;
+  }
+  }
+  
+  function toggleInfo() {
+    const popup = document.getElementById('info-popup');
+    if(popup.style.display === 'block') {
+      popup.style.display = 'none';
+    } else {
+      const data = tabData[currentIndex];
+      document.getElementById('info-title').innerText = data.title;
+      document.getElementById('info-img').src = data.image;
+      document.getElementById('info-desc').innerText = data.description;
+      document.getElementById('info-link').href = data.link;
+      popup.style.display = 'block';
+    }
+  }
+  
+  function hideInfo() {
+    document.getElementById('info-popup').style.display = 'none';
+  }
+    // Close info popup when clicking outside
+  document.addEventListener('click', function(event) {
+    const popup = document.getElementById('info-popup');
+    const tab = document.getElementById('side-tab');
+  
+    // If popup is open and the click is NOT inside the popup or the tab
+    if (
+      popup.style.display === 'block' &&
+      !popup.contains(event.target) &&
+      !tab.contains(event.target)
+    ) {
+      popup.style.display = 'none';
+    }
+  });
 
     // Initialize with default character
     window.onload = function() {
