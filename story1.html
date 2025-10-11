@@ -188,11 +188,14 @@ function swapCharacter(imgSrc, clickedImg) {
   // Add 'selected' class to the clicked image
   clickedImg.classList.add('selected');
 }
-  window.onload = function() {
-    // Set default character
-    swapCharacter('boy1.png', document.querySelector('.picker img')); // picks first img by default
-    showSlide(0);
-  };
+window.onload = function() {
+  // Set default character (first picker image)
+  const firstImg = document.querySelector('.picker img');
+  swapCharacter('boy1.png', firstImg);
+
+  // Show first slide (picker)
+  showSlide(0);
+};
 // Side tab
 function updateTab(){
   const tab=document.getElementById('side-tab');
@@ -226,11 +229,7 @@ document.addEventListener('click', function(event){
 
 function hideInfo(){ document.getElementById('info-popup').style.display='none'; }
 
-// Initialize
-window.onload=function(){
-  swapCharacter('boy1.png');
-  showSlide(0);
-}
+
 </script>
 
 </body>
