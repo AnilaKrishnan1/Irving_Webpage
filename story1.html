@@ -394,40 +394,33 @@
   }
   }
   
-  function toggleInfo() {
-    const popup = document.getElementById('info-popup');
-    if(popup.style.display === 'block') {
-      popup.style.display = 'none';
+function toggleInfo() {
+    const popup = document.getElementById('info-popup'); 
+    if (popup.style.display === 'block') {
+        popup.style.display = 'none';
     } else {
-      const data = tabData[currentIndex];
-      document.getElementById('info-title').innerText = data.title;
-      document.getElementById('info-img').src = data.image;
-      document.getElementById('info-desc').innerText = data.description;
-      document.getElementById('info-link').href = data.link;
-      popup.style.display = 'block';
+        const data = tabData[currentIndex];
+        document.getElementById('info-title').innerText = data.title;
+        document.getElementById('info-img').src = data.image;
+        document.getElementById('info-desc').innerText = data.description;
+        document.getElementById('info-link').href = data.link;
+        popup.style.display = 'block';
     }
-  }
+}
+
   
   function hideInfo() {
     document.getElementById('info-popup').style.display = 'none';
   }
     // Close info popup when clicking outside
   document.addEventListener('click', function(event) {
-    const popup = document.getElementById('info-popup');
-    const tab = document.getElementById('side-tab');
-  
-  function updateTab() {
-    const tab = document.getElementById('side-tab');
-    const popup = document.getElementById('info-popup'); // add this
-    if (currentIndex === 0) {
-      tab.style.display = 'none';
-      popup.style.display = 'none';
-    } else {
-      tab.style.display = 'block';
-      const data = tabData[currentIndex];
-      tab.innerText = data.title;
-    }
-}
+      const popup = document.getElementById('info-popup');
+      const tab = document.getElementById('side-tab');
+      if (!popup.contains(event.target) && !tab.contains(event.target)) {
+          popup.style.display = 'none';
+      }
+  });
+
 
 
     // Initialize with default character
