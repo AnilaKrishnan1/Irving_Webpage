@@ -129,7 +129,14 @@
   <a id="info-link" href="#" target="_blank">Visit Website</a>
 </div>
 
+  <!-- Resizes the map for different screens -->
+  <script src = "https://cdn.jsdelivr.net/npm/image-map-resizer@1.0.10/js/imageMapResizer.min.js"> </script>
+
+  </script>
 <script>
+  // Resizes map for different screens
+    window.onload = () => imageMapResize();
+  
 let currentIndex = 0;
 const slides = document.querySelector('.slides');
 const slideElements = document.querySelectorAll('.slide');
