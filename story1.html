@@ -129,13 +129,32 @@
   <a id="info-link" href="#" target="_blank">Visit Website</a>
 </div>
 
-  <!-- Resizes the map for different screens -->
-  <script src = "https://cdn.jsdelivr.net/npm/image-map-resizer@1.0.10/js/imageMapResizer.min.js"> </script>
 
-  </script>
+  
 <script>
-  // Resizes map for different screens
-    window.onload = () => imageMapResize();
+  // Resize visuals to fit each screen 
+  function resizeElements () {
+    const carousel = document.querySelector('.carousel')
+    const characters = document.querySelectorAll('.character')
+    const tabs = document.querySelectorAll('.side-tab, .info-popup')
+
+    // Gets current carousel width
+    const width = carousel.clientWidth;
+
+    // Resizes characters
+    characters.forEach( c => {
+      c.style.width = (width * 0.15) + 'px'; // makes the characters 15% of the slides
+    });
+
+    // Resizes tabs
+    tabs.forEach( t => {
+      t.style.fontSize = Math.max(width * 0.02, 12) + 'px'; //Makes it 2% of the carasoul width
+    });
+  }
+  
+  // Run on load and on window resize
+  window.addEventListener('load', resizeElements);
+  window.addEventListener('resize', resizeElements);
   
 let currentIndex = 0;
 const slides = document.querySelector('.slides');
