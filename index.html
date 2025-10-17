@@ -158,7 +158,7 @@
     <p>Click on the highlighted spots on the map to discover their history and stories.</p>
 
     <div class="map-container" id="map">
-      <img src="irvingmap3.jpg" usemap="#image-map" alt="Irving Map">
+      <img src="irvingmap3.jpg" usemap="#image-map" alt="Irving Map" style = "width: 100%; height = auto;">
 
       <map name="image-map">
         <area alt="Irving Archives and Museum" title="Irving Archives and Museum" href="page.html" coords="304,761,379,797" shape="rect">
@@ -181,5 +181,11 @@
   <footer>
     <p>&copy; 2025 Irving History Project</p>
   </footer>
+ 
+  <script> src = "https://cdn.jsdelivr.net/npm/image-map-resizer@1.0.10/js/imageMapResizer.min.js" </script>
+  <script>
+    window.onload = () => imageMapResize();
+  </script>
 </body>
+  
 </html>
