@@ -89,11 +89,15 @@
 </div>
 
 <script>
+
+  // Resizes images for other screens
+      window.onload = () => imageMapResize();
+  
 const slides = document.querySelector('.slides');
 const slideElements = document.querySelectorAll('.slide');
 const totalSlides = slideElements.length;
 let currentIndex = 0;
-
+// Data for the info tabs
 const tabData = [
   { title: "Toyota Music Factory", image: "Toyota_Music_Factory.webp", description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.", link: "https://www.toyotamusicfactory.com" },
   { title: "Toyota Music Factory", image: "Toyota_Music_Factory.webp", description: "Otis starts his adventure at the Toyota Music Factory. A place filled with good food, music, and fun.", link: "https://www.toyotamusicfactory.com" },
