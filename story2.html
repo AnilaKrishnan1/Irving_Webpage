@@ -5,48 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Story 2</title>
 <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
-<style>
-  body { font-family: 'Lexend', sans-serif; margin:0; padding:0; background:#f0f9f9; text-align:center; }
-
-  /* Navbar */
-  .navbar { display:flex; justify-content:space-between; align-items:center; background:teal; padding:10px 20px; position:sticky; top:0; z-index:1000; box-shadow:0 2px 5px rgba(0,0,0,0.2);}
-  .navbar .logo img { height:50px; }
-  .navbar-links { display:flex; gap:15px; }
-  .navbar a { color:white; text-decoration:none; font-weight:bold; padding:8px 12px; border-radius:5px; transition:background-color 0.3s; }
-  .navbar a:hover { background-color:darkcyan; }
-  .navbar a.active { background-color:#004d4d; }
-  .navbar a.active {
-    background: white;
-    color: teal;
-  }
-
-  /* Carousel */
-  .carousel { position:relative; width:900px; height:600px; margin:30px auto; border-radius:15px; overflow:hidden; background:#f0f9f9; }
-  .slides { display:flex; transition:transform 0.5s ease-in-out; }
-  .slide { min-width:100%; height:100%; }
-  .background { width:100%; height:100%; object-fit:cover; }
-
-  /* Controls */
-  .controls { margin-top:15px; }
-  .controls button { padding:10px 20px; margin:0 5px; border:none; background:teal; color:white; font-size:16px; font-weight:bold; border-radius:8px; cursor:pointer; }
-  .controls button:hover { background-color:darkcyan; }
-
-  #slide-number { position:absolute; bottom:10px; right:10px; background:rgba(0,0,0,0.6); color:white; padding:5px 12px; border-radius:12px; font-size:14px; }
-
-  /* Single Side Tab */
-  .side-tab { position:fixed; top:150px; right:0; background:teal; color:white; padding:12px 20px; cursor:pointer; border-radius:8px 0 0 8px; text-align:center; z-index:1000; transition: background 0.3s;}
-  .side-tab:hover { background-color:darkcyan; }
-
-  /* Info Popup */
-  .info-popup { display:none; position:fixed; top:150px; right:130px; width:300px; background:white; padding:15px 20px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.2); text-align:left; z-index:1000; }
-  .info-popup img { max-width:100%; border-radius:8px; margin-bottom:10px; }
-  .info-popup a { display:block; margin-top:10px; color:teal; text-decoration:underline; }
-</style>
+<link rel="stylesheet" href="stylesStories.css">
 </head>
 <body>
 
 <div class="navbar">
-  <a href="index.html" class="logo"><img src="museum_logo.png" alt="Irving History Logo"></a>
   <div class="navbar-links">
     <a href="index.html" class="active">Map</a>
     <a href="otis_story.html">Stories</a>
